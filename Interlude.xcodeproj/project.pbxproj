@@ -3,18 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4027647DBB2C8550CBD53615 /* Pods_Interlude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */; };
 		723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129A8236DC6D40069CBEA /* AppDelegate.swift */; };
 		723129AB236DC6D40069CBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129AA236DC6D40069CBEA /* SceneDelegate.swift */; };
-		723129AD236DC6D40069CBEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129AC236DC6D40069CBEA /* ViewController.swift */; };
+		723129AD236DC6D40069CBEA /* PeopleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129AC236DC6D40069CBEA /* PeopleListViewController.swift */; };
 		723129B0236DC6D40069CBEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723129AE236DC6D40069CBEA /* Main.storyboard */; };
 		723129B2236DC6D50069CBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723129B1236DC6D50069CBEA /* Assets.xcassets */; };
 		723129B5236DC6D50069CBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723129B3236DC6D50069CBEA /* LaunchScreen.storyboard */; };
 		723129C0236DC6D50069CBEA /* InterludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129BF236DC6D50069CBEA /* InterludeTests.swift */; };
+		72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F30236DE86F000344EF /* PersonListModels.swift */; };
+		72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F32236DE885000344EF /* PersonListInteractor.swift */; };
+		72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F34236DE8BC000344EF /* PersonListPresenter.swift */; };
+		72F62F37236DEA43000344EF /* PersonListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F36236DEA43000344EF /* PersonListWorker.swift */; };
+		72F62F39236DEA9A000344EF /* PersonListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F38236DEA9A000344EF /* PersonListRouter.swift */; };
+		72F62F3D236DEB49000344EF /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F3C236DEB49000344EF /* Links.swift */; };
+		72F62F3F236DEB9C000344EF /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F3E236DEB9C000344EF /* Constants.swift */; };
+		72F62F41236DEF73000344EF /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F40236DEF73000344EF /* Network.swift */; };
 		BC7C01C8A90EA1B63A531C67 /* Pods_InterludeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0D4CB0C619028C28FD845A /* Pods_InterludeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +43,7 @@
 		723129A5236DC6D40069CBEA /* Interlude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Interlude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723129A8236DC6D40069CBEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723129AA236DC6D40069CBEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		723129AC236DC6D40069CBEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		723129AC236DC6D40069CBEA /* PeopleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleListViewController.swift; sourceTree = "<group>"; };
 		723129AF236DC6D40069CBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		723129B1236DC6D50069CBEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		723129B4236DC6D50069CBEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -43,6 +51,14 @@
 		723129BB236DC6D50069CBEA /* InterludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		723129BF236DC6D50069CBEA /* InterludeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterludeTests.swift; sourceTree = "<group>"; };
 		723129C1236DC6D50069CBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72F62F30236DE86F000344EF /* PersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModels.swift; sourceTree = "<group>"; };
+		72F62F32236DE885000344EF /* PersonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInteractor.swift; sourceTree = "<group>"; };
+		72F62F34236DE8BC000344EF /* PersonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPresenter.swift; sourceTree = "<group>"; };
+		72F62F36236DEA43000344EF /* PersonListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListWorker.swift; sourceTree = "<group>"; };
+		72F62F38236DEA9A000344EF /* PersonListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListRouter.swift; sourceTree = "<group>"; };
+		72F62F3C236DEB49000344EF /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		72F62F3E236DEB9C000344EF /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		72F62F40236DEF73000344EF /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		8D24F6910E2DDB7D584E0A46 /* Pods-InterludeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterludeTests.debug.xcconfig"; path = "Target Support Files/Pods-InterludeTests/Pods-InterludeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D2FACE2CBF1CD94BDADCFC9 /* Pods-Interlude.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interlude.debug.xcconfig"; path = "Target Support Files/Pods-Interlude/Pods-Interlude.debug.xcconfig"; sourceTree = "<group>"; };
 		CC7F8C41C8F74F0DB00DF1B9 /* Pods-Interlude.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Interlude.release.xcconfig"; path = "Target Support Files/Pods-Interlude/Pods-Interlude.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,7 +92,6 @@
 				8D24F6910E2DDB7D584E0A46 /* Pods-InterludeTests.debug.xcconfig */,
 				0171A67B4DBD5825B5063CAA /* Pods-InterludeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,13 +118,11 @@
 		723129A7236DC6D40069CBEA /* Interlude */ = {
 			isa = PBXGroup;
 			children = (
-				723129A8236DC6D40069CBEA /* AppDelegate.swift */,
-				723129AA236DC6D40069CBEA /* SceneDelegate.swift */,
-				723129AC236DC6D40069CBEA /* ViewController.swift */,
-				723129AE236DC6D40069CBEA /* Main.storyboard */,
-				723129B1236DC6D50069CBEA /* Assets.xcassets */,
-				723129B3236DC6D50069CBEA /* LaunchScreen.storyboard */,
 				723129B6236DC6D50069CBEA /* Info.plist */,
+				72F62F3B236DEB35000344EF /* App */,
+				72F62F3A236DEB2B000344EF /* Networking */,
+				72F62F2F236DE840000344EF /* Cells */,
+				72F62F2D236DE797000344EF /* Scenes */,
 			);
 			path = Interlude;
 			sourceTree = "<group>";
@@ -121,6 +134,56 @@
 				723129C1236DC6D50069CBEA /* Info.plist */,
 			);
 			path = InterludeTests;
+			sourceTree = "<group>";
+		};
+		72F62F2D236DE797000344EF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				72F62F2E236DE7A2000344EF /* PeopleList */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		72F62F2E236DE7A2000344EF /* PeopleList */ = {
+			isa = PBXGroup;
+			children = (
+				723129AC236DC6D40069CBEA /* PeopleListViewController.swift */,
+				72F62F30236DE86F000344EF /* PersonListModels.swift */,
+				72F62F32236DE885000344EF /* PersonListInteractor.swift */,
+				72F62F34236DE8BC000344EF /* PersonListPresenter.swift */,
+				72F62F36236DEA43000344EF /* PersonListWorker.swift */,
+				72F62F38236DEA9A000344EF /* PersonListRouter.swift */,
+			);
+			path = PeopleList;
+			sourceTree = "<group>";
+		};
+		72F62F2F236DE840000344EF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		72F62F3A236DEB2B000344EF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				72F62F40236DEF73000344EF /* Network.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		72F62F3B236DEB35000344EF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				723129A8236DC6D40069CBEA /* AppDelegate.swift */,
+				723129AA236DC6D40069CBEA /* SceneDelegate.swift */,
+				723129AE236DC6D40069CBEA /* Main.storyboard */,
+				723129B1236DC6D50069CBEA /* Assets.xcassets */,
+				723129B3236DC6D50069CBEA /* LaunchScreen.storyboard */,
+				72F62F3C236DEB49000344EF /* Links.swift */,
+				72F62F3E236DEB9C000344EF /* Constants.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		B7DD870BF566C5D404AA52E4 /* Frameworks */ = {
@@ -300,8 +363,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				723129AD236DC6D40069CBEA /* ViewController.swift in Sources */,
+				723129AD236DC6D40069CBEA /* PeopleListViewController.swift in Sources */,
+				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,
 				723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */,
+				72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */,
+				72F62F3D236DEB49000344EF /* Links.swift in Sources */,
+				72F62F41236DEF73000344EF /* Network.swift in Sources */,
+				72F62F3F236DEB9C000344EF /* Constants.swift in Sources */,
+				72F62F37236DEA43000344EF /* PersonListWorker.swift in Sources */,
+				72F62F39236DEA9A000344EF /* PersonListRouter.swift in Sources */,
+				72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */,
 				723129AB236DC6D40069CBEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
