@@ -8,17 +8,35 @@
 
 import UIKit
 
-protocol PersonListViewControllerProtocol {
+protocol PersonListViewControllerProtocol: class {
     func showPersonList(using viewModel: PersonList.Request)
 }
 
-class PersonListViewController: UIViewController, PersonListViewControllerProtocol {
+class PersonListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    var interactor: PersonListInteractorProtocol?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        configureLifecycle()
+    }
+    
+    private func configureLifecycle() {
+        let presenter = PersonListPresenter(viewController: self)
+        let worker = PersonListWorker()
+        interactor = PersonListInteractor(presenter: presenter, worker: worker)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let request = PersonList.Request()
+        interactor?.requestPersonList(using: request)
     }
-    
+}
+
+extension PersonListViewController: PersonListViewControllerProtocol {
     func showPersonList(using viewModel: PersonList.Request) {
         
     }
