@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-1570" y="52"/>
         </scene>
-        <!--Pipedrive API-->
+        <!--Person List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PersonListViewController" customModule="Interlude" customModuleProvider="target" sceneMemberID="viewController">
@@ -46,14 +46,50 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Pipedrive API" id="hBM-I8-9ez"/>
+                    <navigationItem key="navigationItem" title="Person List" id="hBM-I8-9ez"/>
                     <connections>
                         <outlet property="tableView" destination="W81-QL-mV4" id="ouZ-0l-AEA"/>
+                        <segue destination="Zf1-iG-WFb" kind="show" identifier="PersonListToPersonDetails" id="7yZ-4v-EH2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="674" y="-181"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="yge-T6-O0T">
+            <objects>
+                <viewController id="Zf1-iG-WFb" customClass="PersonDetailsViewController" customModule="Interlude" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="y3y-ca-zKS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L78-Yu-Vr9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Zf1-iG-WFb" id="CF1-2B-Pag"/>
+                                    <outlet property="delegate" destination="Zf1-iG-WFb" id="dl5-F1-63l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="L78-Yu-Vr9" firstAttribute="leading" secondItem="mp0-r9-7rG" secondAttribute="leading" id="5Rn-7l-Zx3"/>
+                            <constraint firstItem="L78-Yu-Vr9" firstAttribute="bottom" secondItem="mp0-r9-7rG" secondAttribute="bottom" id="7Xo-vk-Dfo"/>
+                            <constraint firstItem="L78-Yu-Vr9" firstAttribute="trailing" secondItem="mp0-r9-7rG" secondAttribute="trailing" id="Zdj-LX-Ikm"/>
+                            <constraint firstItem="L78-Yu-Vr9" firstAttribute="top" secondItem="mp0-r9-7rG" secondAttribute="top" id="nsu-YJ-nvd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="mp0-r9-7rG"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="LDC-bK-ok3"/>
+                    <connections>
+                        <outlet property="tableView" destination="L78-Yu-Vr9" id="sut-M5-K8w"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ghv-Zx-cha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534.7826086956522" y="-181.47321428571428"/>
         </scene>
         <!--Theory-->
         <scene sceneID="vAL-ov-5Y4">

@@ -6,14 +6,38 @@
 //  Copyright © 2019 Heavenlapse. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PersonListRouterProtocol {
-    func goToPersonDetail(with id: String)
+    func navigateToPersonDetails()
+    func passDataToNextScene(using segue: UIStoryboardSegue)
 }
 
 final class PersonListRouter: PersonListRouterProtocol {
-    func goToPersonDetail(with id: String) {
+    weak var viewController: PersonListViewController?
+    
+    init(viewController: PersonListViewController?) {
+        self.viewController = viewController
+    }
+    
+    func navigateToPersonDetails() {
+        viewController?.performSegue(withIdentifier: Segues.personListToPersonDetails, sender: nil)
+    }
+    
+    func passDataToNextScene(using segue: UIStoryboardSegue) {
+        if segue.identifier == Segues.personListToPersonDetails {
+            passDataToPersonDetails(using: segue)
+        }
+    }
+    
+    private func passDataToPersonDetails(using segue: UIStoryboardSegue) {
+        let source = segue.source as! PersonListViewController
+        let destionation = segue.destination as! PersonDetailsViewController
         
+        guard let selectedIndexPath = source.tableView.indexPathForSelectedRow,
+            let interactor = source.interactor as? PersonListInteractor,
+            let response = interactor.response?.personList[selectedIndexPath.row] else { return }
+        
+        destionation.personID = response.id
     }
 }

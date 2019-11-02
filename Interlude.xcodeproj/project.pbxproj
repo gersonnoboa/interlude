@@ -15,6 +15,8 @@
 		723129B2236DC6D50069CBEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 723129B1236DC6D50069CBEA /* Assets.xcassets */; };
 		723129B5236DC6D50069CBEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 723129B3236DC6D50069CBEA /* LaunchScreen.storyboard */; };
 		723129C0236DC6D50069CBEA /* InterludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129BF236DC6D50069CBEA /* InterludeTests.swift */; };
+		7271C069236E2390005331AB /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271C068236E2390005331AB /* PersonDetailsViewController.swift */; };
+		7271C06B236E282C005331AB /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271C06A236E282C005331AB /* Segues.swift */; };
 		72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F30236DE86F000344EF /* PersonListModels.swift */; };
 		72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F32236DE885000344EF /* PersonListInteractor.swift */; };
 		72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F34236DE8BC000344EF /* PersonListPresenter.swift */; };
@@ -56,6 +58,8 @@
 		723129BB236DC6D50069CBEA /* InterludeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InterludeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		723129BF236DC6D50069CBEA /* InterludeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterludeTests.swift; sourceTree = "<group>"; };
 		723129C1236DC6D50069CBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7271C068236E2390005331AB /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
+		7271C06A236E282C005331AB /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		72F62F30236DE86F000344EF /* PersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModels.swift; sourceTree = "<group>"; };
 		72F62F32236DE885000344EF /* PersonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInteractor.swift; sourceTree = "<group>"; };
 		72F62F34236DE8BC000344EF /* PersonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPresenter.swift; sourceTree = "<group>"; };
@@ -197,6 +201,7 @@
 				723129B3236DC6D50069CBEA /* LaunchScreen.storyboard */,
 				72F62F3C236DEB49000344EF /* Links.swift */,
 				72F62F3E236DEB9C000344EF /* Constants.swift */,
+				7271C06A236E282C005331AB /* Segues.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				72F62F45236DF6F7000344EF /* PersonDetailsModels.swift */,
+				7271C068236E2390005331AB /* PersonDetailsViewController.swift */,
 			);
 			path = PersonDetails;
 			sourceTree = "<group>";
@@ -398,11 +404,13 @@
 				72F62F43236DF2BC000344EF /* RemoteObject.swift in Sources */,
 				72F62F46236DF6F7000344EF /* PersonDetailsModels.swift in Sources */,
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
+				7271C06B236E282C005331AB /* Segues.swift in Sources */,
 				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,
 				72F62F48236E11DA000344EF /* PersonListCell.swift in Sources */,
 				723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */,
 				72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */,
 				72F62F3D236DEB49000344EF /* Links.swift in Sources */,
+				7271C069236E2390005331AB /* PersonDetailsViewController.swift in Sources */,
 				72F62F41236DEF73000344EF /* Network.swift in Sources */,
 				72F62F3F236DEB9C000344EF /* Constants.swift in Sources */,
 				72F62F37236DEA43000344EF /* PersonListWorker.swift in Sources */,

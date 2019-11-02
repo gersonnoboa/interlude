@@ -15,6 +15,7 @@ protocol PersonListViewControllerProtocol: class {
 class PersonListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var interactor: PersonListInteractorProtocol?
+    var router: PersonListRouterProtocol?
     var viewModel: PersonList.ViewModel?
     
     required init?(coder: NSCoder) {
@@ -27,6 +28,7 @@ class PersonListViewController: UIViewController {
         let presenter = PersonListPresenter(viewController: self)
         let worker = PersonListWorker()
         interactor = PersonListInteractor(presenter: presenter, worker: worker)
+        router = PersonListRouter(viewController: self)
     }
     
     override func viewDidLoad() {
@@ -36,6 +38,18 @@ class PersonListViewController: UIViewController {
         interactor?.requestPersonList(using: request)
         
         tableView.register(PersonListCell.viewNib(), forCellReuseIdentifier: PersonListCell.identifier())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: true)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.passDataToNextScene(using: segue)
     }
 }
 
@@ -61,5 +75,9 @@ extension PersonListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.followersLabel.text = person.followers
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.navigateToPersonDetails()
     }
 }
