@@ -34,6 +34,8 @@ class PersonListViewController: UIViewController {
         
         let request = PersonList.Request()
         interactor?.requestPersonList(using: request)
+        
+        tableView.register(PersonListCell.viewNib(), forCellReuseIdentifier: PersonListCell.identifier())
     }
 }
 
@@ -53,14 +55,11 @@ extension PersonListViewController: UITableViewDataSource, UITableViewDelegate {
         guard let viewModel = viewModel else { return UITableViewCell() }
         
         let person = viewModel.personList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: PersonListCell.identifier()) as! PersonListCell
+        cell.nameLabel.text = person.fullName
+        cell.organizationLabel.text = person.organizationName
+        cell.followersLabel.text = person.followers
         
-        var cell = tableView.dequeueReusableCell(withIdentifier: "ID")
-        if cell == nil {
-            cell = UITableViewCell(style: .default, reuseIdentifier: "ID")
-        }
-        
-        cell!.textLabel?.text = person.firstName
-        
-        return cell!
+        return cell
     }
 }

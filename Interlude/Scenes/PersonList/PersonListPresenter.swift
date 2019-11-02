@@ -21,9 +21,17 @@ final class PersonListPresenter: PersonListPresenterProtocol {
     }
     
     func presentPersonList(using response: PersonList.Response) {
-        let list = response.personList.map { PersonDetails.ViewModel(firstName: $0.firstName,
-                                                                     lastName: $0.lastName,
-                                                                     organizationName: $0.organizationName) }
+        
+        let list = response.personList.map { person -> PersonDetails.ViewModel in
+            let fullName = "\(person.firstName) \(person.lastName.uppercased())"
+            let organizationName = "Part of \(person.organizationName)"
+            let followerString = person.followers == 1 ? "follower" : "followers"
+            let followers = "\(person.followers) \(followerString)"
+            
+            return PersonDetails.ViewModel(fullName: fullName,
+                                           organizationName: organizationName,
+                                           followers: followers)
+        }
         
         let viewModel = PersonList.ViewModel(personList: list)
         

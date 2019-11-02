@@ -14,12 +14,13 @@ struct PersonDetails {
         var firstName: String
         var lastName: String
         var organizationName: String
+        var followers: Int
     }
     
     struct ViewModel {
-        var firstName: String
-        var lastName: String
+        var fullName: String
         var organizationName: String
+        var followers: String
     }
     
     struct Remote: Codable {
@@ -27,5 +28,6 @@ struct PersonDetails {
         var firstName: String
         var lastName: String
         var orgName: String
+        var followersCount: Int
     }
 }
