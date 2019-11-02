@@ -21,15 +21,15 @@ final class PersonListWorker: PersonListWorkerProtocol {
     
     func fetchPersonList(using request: PersonList.Request, completion: @escaping (PersonList.Response?) -> Void) {
         network.getJSON(Links.personList) { (list: PersonList.Remote?) in
-            let data = list?.data.map { PersonDetails.Response(id: $0.id,
-                                                               firstName: $0.firstName,
-                                                               lastName: $0.lastName,
-                                                               organizationName: $0.orgName)}
-            
-            guard let personList = data else {
+            guard let list = list, list.success else {
                 completion(nil)
                 return
             }
+            
+            let personList = list.data.map { PersonDetails.Response(id: $0.id,
+                                                               firstName: $0.firstName,
+                                                               lastName: $0.lastName,
+                                                               organizationName: $0.orgName)}
             
             let response = PersonList.Response(personList: personList)
             completion(response)

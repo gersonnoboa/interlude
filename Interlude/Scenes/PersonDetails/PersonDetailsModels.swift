@@ -16,6 +16,12 @@ struct PersonDetails {
         var organizationName: String
     }
     
+    struct ViewModel {
+        var firstName: String
+        var lastName: String
+        var organizationName: String
+    }
+    
     struct Remote: Codable {
         var id: Int
         var firstName: String

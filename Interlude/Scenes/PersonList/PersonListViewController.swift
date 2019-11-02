@@ -9,12 +9,13 @@
 import UIKit
 
 protocol PersonListViewControllerProtocol: class {
-    func showPersonList(using viewModel: PersonList.Request)
+    func showPersonList(using viewModel: PersonList.ViewModel)
 }
 
 class PersonListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var interactor: PersonListInteractorProtocol?
+    var viewModel: PersonList.ViewModel?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -37,17 +38,29 @@ class PersonListViewController: UIViewController {
 }
 
 extension PersonListViewController: PersonListViewControllerProtocol {
-    func showPersonList(using viewModel: PersonList.Request) {
-        
+    func showPersonList(using viewModel: PersonList.ViewModel) {
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
 }
 
 extension PersonListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return viewModel?.personList.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let viewModel = viewModel else { return UITableViewCell() }
+        
+        let person = viewModel.personList[indexPath.row]
+        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "ID")
+        if cell == nil {
+            cell = UITableViewCell(style: .default, reuseIdentifier: "ID")
+        }
+        
+        cell!.textLabel?.text = person.firstName
+        
+        return cell!
     }
 }

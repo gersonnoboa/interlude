@@ -18,7 +18,7 @@ struct PersonList {
     }
     
     struct ViewModel {
-        
+        var personList: [PersonDetails.ViewModel]
     }
     
     struct Remote: Codable, RemoteObjectProtocol {

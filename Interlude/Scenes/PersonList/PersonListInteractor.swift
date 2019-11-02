@@ -15,6 +15,7 @@ protocol PersonListInteractorProtocol {
 final class PersonListInteractor: PersonListInteractorProtocol {
     var presenter: PersonListPresenterProtocol
     var worker: PersonListWorkerProtocol
+    var response: PersonList.Response?
     
     init(presenter: PersonListPresenterProtocol, worker: PersonListWorkerProtocol) {
         self.presenter = presenter
@@ -23,6 +24,8 @@ final class PersonListInteractor: PersonListInteractorProtocol {
     
     func requestPersonList(using request: PersonList.Request) {
         worker.fetchPersonList(using: request) { [weak self] list in
+            self?.response = list
+            
             guard let list = list else {
                 self?.presenter.presentError()
                 return

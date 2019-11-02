@@ -21,11 +21,18 @@ final class PersonListPresenter: PersonListPresenterProtocol {
     }
     
     func presentPersonList(using response: PersonList.Response) {
-        print("response from presenter")
-        print(response)
+        let list = response.personList.map { PersonDetails.ViewModel(firstName: $0.firstName,
+                                                                     lastName: $0.lastName,
+                                                                     organizationName: $0.organizationName) }
+        
+        let viewModel = PersonList.ViewModel(personList: list)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.showPersonList(using: viewModel)
+        }
     }
     
     func presentError() {
-        print("response error")
+        
     }
 }
