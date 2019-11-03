@@ -11,6 +11,8 @@ import Foundation
 protocol PersonListPresenterProtocol {
     func presentPersonList(using response: PersonList.Response)
     func presentError()
+    func presentRefreshControlLoadingState()
+    func presentRefreshControlInitialState()
 }
 
 final class PersonListPresenter: PersonListPresenterProtocol {
@@ -42,5 +44,17 @@ final class PersonListPresenter: PersonListPresenterProtocol {
     
     func presentError() {
         
+    }
+    
+    func presentRefreshControlLoadingState() {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.showRefreshControlUpdate("Loading")
+        }
+    }
+    
+    func presentRefreshControlInitialState() {
+        DispatchQueue.main.async { [weak self] in
+            self?.viewController?.showRefreshControlUpdate("Pull to refresh")
+        }
     }
 }

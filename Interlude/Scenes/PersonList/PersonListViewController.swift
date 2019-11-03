@@ -10,13 +10,15 @@ import UIKit
 
 protocol PersonListViewControllerProtocol: class {
     func showPersonList(using viewModel: PersonList.ViewModel)
+    func showRefreshControlUpdate(_ update: String)
 }
 
-class PersonListViewController: UIViewController {
+class PersonListViewController: UIViewController, PersonListViewControllerProtocol {
     @IBOutlet weak var tableView: UITableView!
     var interactor: PersonListInteractorProtocol?
     var router: PersonListRouterProtocol?
     var viewModel: PersonList.ViewModel?
+    var refreshControl = UIRefreshControl()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -24,17 +26,10 @@ class PersonListViewController: UIViewController {
         configureLifecycle()
     }
     
-    private func configureLifecycle() {
-        let presenter = PersonListPresenter(viewController: self)
-        let worker = PersonListWorker()
-        interactor = PersonListInteractor(presenter: presenter, worker: worker)
-        router = PersonListRouter(viewController: self)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(PersonListCell.viewNib(), forCellReuseIdentifier: PersonListCell.identifier())
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,12 +46,38 @@ class PersonListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         router?.passDataToNextScene(using: segue)
     }
-}
-
-extension PersonListViewController: PersonListViewControllerProtocol {
+    
+    private func configureLifecycle() {
+        let presenter = PersonListPresenter(viewController: self)
+        let worker = PersonListWorker()
+        interactor = PersonListInteractor(presenter: presenter, worker: worker)
+        router = PersonListRouter(viewController: self)
+    }
+    
+    private func configureTableView() {
+        tableView.register(PersonListCell.viewNib(), forCellReuseIdentifier: PersonListCell.identifier())
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
+        tableView.addSubview(refreshControl)
+    }
+    
+    @objc func refreshTableView() {
+        let request = PersonList.Request(needsNetworkLoad: true)
+        interactor?.requestPersonList(using: request)
+    }
+    
     func showPersonList(using viewModel: PersonList.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
+        
+        if refreshControl.isRefreshing {
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    func showRefreshControlUpdate(_ update: String) {
+        refreshControl.attributedTitle = NSAttributedString(string: update)
     }
 }
 
