@@ -26,7 +26,7 @@ final class PersonListWorker: PersonListWorkerProtocol {
                 return
             }
             
-            let personList = list.data.map { PersonDetails.Response(id: $0.id,
+            let personList = list.data.map { Person.Response(id: $0.id,
                                                                     firstName: $0.firstName,
                                                                     lastName: $0.lastName,
                                                                     organizationName: $0.orgName,

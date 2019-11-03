@@ -17,6 +17,8 @@
 		723129C0236DC6D50069CBEA /* InterludeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129BF236DC6D50069CBEA /* InterludeTests.swift */; };
 		7271C069236E2390005331AB /* PersonDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271C068236E2390005331AB /* PersonDetailsViewController.swift */; };
 		7271C06B236E282C005331AB /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271C06A236E282C005331AB /* Segues.swift */; };
+		72C80F71236F0F9400CEFB1E /* PersonDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */; };
+		72C80F73236F101900CEFB1E /* PersonDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F72236F101900CEFB1E /* PersonDetailsPresenter.swift */; };
 		72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F30236DE86F000344EF /* PersonListModels.swift */; };
 		72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F32236DE885000344EF /* PersonListInteractor.swift */; };
 		72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F34236DE8BC000344EF /* PersonListPresenter.swift */; };
@@ -60,6 +62,8 @@
 		723129C1236DC6D50069CBEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7271C068236E2390005331AB /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		7271C06A236E282C005331AB /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
+		72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsInteractor.swift; sourceTree = "<group>"; };
+		72C80F72236F101900CEFB1E /* PersonDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsPresenter.swift; sourceTree = "<group>"; };
 		72F62F30236DE86F000344EF /* PersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModels.swift; sourceTree = "<group>"; };
 		72F62F32236DE885000344EF /* PersonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInteractor.swift; sourceTree = "<group>"; };
 		72F62F34236DE8BC000344EF /* PersonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPresenter.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 			children = (
 				72F62F45236DF6F7000344EF /* PersonDetailsModels.swift */,
 				7271C068236E2390005331AB /* PersonDetailsViewController.swift */,
+				72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */,
+				72C80F72236F101900CEFB1E /* PersonDetailsPresenter.swift */,
 			);
 			path = PersonDetails;
 			sourceTree = "<group>";
@@ -403,6 +409,8 @@
 			files = (
 				72F62F43236DF2BC000344EF /* RemoteObject.swift in Sources */,
 				72F62F46236DF6F7000344EF /* PersonDetailsModels.swift in Sources */,
+				72C80F73236F101900CEFB1E /* PersonDetailsPresenter.swift in Sources */,
+				72C80F71236F0F9400CEFB1E /* PersonDetailsInteractor.swift in Sources */,
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
 				7271C06B236E282C005331AB /* Segues.swift in Sources */,
 				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,

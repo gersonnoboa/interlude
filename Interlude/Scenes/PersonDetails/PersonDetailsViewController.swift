@@ -12,20 +12,35 @@ protocol PersonDetailsViewControllerProtocol: class {
     func showPersonDetails(using viewModel: PersonDetails.ViewModel)
 }
 
-final class PersonDetailsViewController: UIViewController {
+final class PersonDetailsViewController: UIViewController, PersonDetailsViewControllerProtocol {
     @IBOutlet weak var tableView: UITableView!
-    var personID: Int?
+    var request: PersonDetails.Request?
+    var interactor: PersonDetailsInteractorProtocol?
+    private var viewModel: PersonDetails.ViewModel?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        
+        configureLifecycle()
+    }
+    
+    private func configureLifecycle() {
+        let presenter = PersonDetailsPresenter(viewController: self)
+        interactor = PersonDetailsInteractor(presenter: presenter)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(personID)
+        if let request = request {
+            interactor?.requestPersonDetails(using: request)
+        }
     }
-}
-
-extension PersonDetailsViewController: PersonDetailsViewControllerProtocol {
+    
     func showPersonDetails(using viewModel: PersonDetails.ViewModel) {
-        
+        self.viewModel = viewModel
+        tableView.reloadData()
+        print(viewModel)
     }
 }
 

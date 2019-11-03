@@ -9,8 +9,14 @@
 import Foundation
 
 struct PersonDetails {
+    struct Request {
+        var firstName: String
+        var lastName: String
+        var organizationName: String
+        var followers: Int
+    }
+    
     struct Response {
-        var id: Int
         var firstName: String
         var lastName: String
         var organizationName: String
@@ -18,16 +24,9 @@ struct PersonDetails {
     }
     
     struct ViewModel {
-        var fullName: String
-        var organizationName: String
-        var followers: String
-    }
-    
-    struct Remote: Codable {
-        var id: Int
         var firstName: String
         var lastName: String
-        var orgName: String
-        var followersCount: Int
+        var organizationName: String
+        var followers: String
     }
 }

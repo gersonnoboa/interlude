@@ -14,16 +14,16 @@ struct PersonList {
     }
     
     struct Response {
-        var personList: [PersonDetails.Response]
+        var personList: [Person.Response]
     }
     
     struct ViewModel {
-        var personList: [PersonDetails.ViewModel]
+        var personList: [Person.ViewModel]
     }
     
     struct Remote: Codable, RemoteObjectProtocol {
         var success: Bool
-        var data: [PersonDetails.Remote]
+        var data: [Person.Remote]
         
         enum CodingKeys: String, CodingKey {
           case success
@@ -33,7 +33,32 @@ struct PersonList {
         init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
             success = try container.decode(Bool.self, forKey: .success)
-            data = try container.decode([PersonDetails.Remote].self, forKey: .data)
+            data = try container.decode([Person.Remote].self, forKey: .data)
         }
     }
 }
+
+struct Person {
+    struct Response {
+        var id: Int
+        var firstName: String
+        var lastName: String
+        var organizationName: String
+        var followers: Int
+    }
+    
+    struct ViewModel {
+        var fullName: String
+        var organizationName: String
+        var followers: String
+    }
+    
+    struct Remote: Codable {
+        var id: Int
+        var firstName: String
+        var lastName: String
+        var orgName: String
+        var followersCount: Int
+    }
+}
+
