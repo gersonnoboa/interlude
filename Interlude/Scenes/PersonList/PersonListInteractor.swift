@@ -23,20 +23,19 @@ final class PersonListInteractor: PersonListInteractorProtocol {
     }
     
     func requestPersonList(using request: PersonList.Request) {
-        presenter.presentRefreshControlLoadingState()
+        presenter.presentLoading(isFromPullToRefresh: request.isFromPullToRefresh)
         
         worker.fetchPersonList(using: request) { [weak self] list in
             self?.response = list
             
             guard let list = list else {
                 self?.presenter.presentError()
-                self?.presenter.presentRefreshControlInitialState()
                 
                 return
             }
             
             self?.presenter.presentPersonList(using: list)
-            self?.presenter.presentRefreshControlInitialState()
+            self?.presenter.hideLoading(isFromPullToRefresh: request.isFromPullToRefresh)
         }
     }
 }

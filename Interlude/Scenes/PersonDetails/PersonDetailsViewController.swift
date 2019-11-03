@@ -24,11 +24,6 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
         configureLifecycle()
     }
     
-    private func configureLifecycle() {
-        let presenter = PersonDetailsPresenter(viewController: self)
-        interactor = PersonDetailsInteractor(presenter: presenter)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,8 +31,20 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
             interactor?.requestPersonDetails(using: request)
         }
         
+        view.backgroundColor = Constants.backgroundColor
+        configureTableView()
+    }
+    
+    private func configureLifecycle() {
+        let presenter = PersonDetailsPresenter(viewController: self)
+        interactor = PersonDetailsInteractor(presenter: presenter)
+    }
+    
+    private func configureTableView() {
         tableView.register(PersonDetailsNameImageCell.viewNib(), forCellReuseIdentifier: PersonDetailsNameImageCell.identifier())
         tableView.register(PersonDetailsDataCell.viewNib(), forCellReuseIdentifier: PersonDetailsDataCell.identifier())
+        tableView.backgroundColor = Constants.backgroundColor
+        tableView.tableFooterView = UIView()
     }
     
     func showPersonDetails(using viewModel: PersonDetails.ViewModel) {

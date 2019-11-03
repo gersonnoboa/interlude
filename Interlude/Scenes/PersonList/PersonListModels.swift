@@ -10,7 +10,7 @@ import Foundation
 
 struct PersonList {
     struct Request {
-        var needsNetworkLoad: Bool
+        var isFromPullToRefresh: Bool
     }
     
     struct Response {

@@ -23,6 +23,8 @@
 		72C80F79236F279F00CEFB1E /* PersonDetailsNameImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */; };
 		72C80F7B236F286000CEFB1E /* PersonDetailsDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */; };
 		72C80F7D236F286B00CEFB1E /* PersonDetailsDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */; };
+		72C80F81236F473200CEFB1E /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F80236F473200CEFB1E /* LoadingView.swift */; };
+		72C80F83236F474100CEFB1E /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C80F82236F474100CEFB1E /* LoadingView.xib */; };
 		72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F30236DE86F000344EF /* PersonListModels.swift */; };
 		72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F32236DE885000344EF /* PersonListInteractor.swift */; };
 		72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F34236DE8BC000344EF /* PersonListPresenter.swift */; };
@@ -72,6 +74,8 @@
 		72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailsNameImageCell.xib; sourceTree = "<group>"; };
 		72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsDataCell.swift; sourceTree = "<group>"; };
 		72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailsDataCell.xib; sourceTree = "<group>"; };
+		72C80F80236F473200CEFB1E /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		72C80F82236F474100CEFB1E /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		72F62F30236DE86F000344EF /* PersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModels.swift; sourceTree = "<group>"; };
 		72F62F32236DE885000344EF /* PersonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInteractor.swift; sourceTree = "<group>"; };
 		72F62F34236DE8BC000344EF /* PersonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPresenter.swift; sourceTree = "<group>"; };
@@ -144,11 +148,11 @@
 		723129A7236DC6D40069CBEA /* Interlude */ = {
 			isa = PBXGroup;
 			children = (
+				72C80F7E236F470D00CEFB1E /* View Resources */,
 				72F62F4B236E1915000344EF /* Extensions */,
 				723129B6236DC6D50069CBEA /* Info.plist */,
 				72F62F3B236DEB35000344EF /* App */,
 				72F62F3A236DEB2B000344EF /* Networking */,
-				72F62F2F236DE840000344EF /* Cells */,
 				72F62F2D236DE797000344EF /* Scenes */,
 			);
 			path = Interlude;
@@ -161,6 +165,24 @@
 				723129C1236DC6D50069CBEA /* Info.plist */,
 			);
 			path = InterludeTests;
+			sourceTree = "<group>";
+		};
+		72C80F7E236F470D00CEFB1E /* View Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72C80F7F236F472000CEFB1E /* Views */,
+				72F62F2F236DE840000344EF /* Cells */,
+			);
+			path = "View Resources";
+			sourceTree = "<group>";
+		};
+		72C80F7F236F472000CEFB1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				72C80F80236F473200CEFB1E /* LoadingView.swift */,
+				72C80F82236F474100CEFB1E /* LoadingView.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		72F62F2D236DE797000344EF /* Scenes */ = {
@@ -338,6 +360,7 @@
 				723129B5236DC6D50069CBEA /* LaunchScreen.storyboard in Resources */,
 				723129B2236DC6D50069CBEA /* Assets.xcassets in Resources */,
 				72C80F7D236F286B00CEFB1E /* PersonDetailsDataCell.xib in Resources */,
+				72C80F83236F474100CEFB1E /* LoadingView.xib in Resources */,
 				72F62F4A236E1750000344EF /* PersonListCell.xib in Resources */,
 				723129B0236DC6D40069CBEA /* Main.storyboard in Resources */,
 			);
@@ -424,6 +447,7 @@
 				72F62F43236DF2BC000344EF /* RemoteObject.swift in Sources */,
 				72F62F46236DF6F7000344EF /* PersonDetailsModels.swift in Sources */,
 				72C80F73236F101900CEFB1E /* PersonDetailsPresenter.swift in Sources */,
+				72C80F81236F473200CEFB1E /* LoadingView.swift in Sources */,
 				72C80F71236F0F9400CEFB1E /* PersonDetailsInteractor.swift in Sources */,
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
 				7271C06B236E282C005331AB /* Segues.swift in Sources */,

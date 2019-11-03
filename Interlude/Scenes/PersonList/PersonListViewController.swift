@@ -10,7 +10,9 @@ import UIKit
 
 protocol PersonListViewControllerProtocol: class {
     func showPersonList(using viewModel: PersonList.ViewModel)
-    func showRefreshControlUpdate(_ update: String)
+    func showRefreshControlUpdate(_ updateText: String, shouldRefresh: Bool)
+    func showLoading()
+    func hideLoading()
 }
 
 class PersonListViewController: UIViewController, PersonListViewControllerProtocol {
@@ -19,6 +21,7 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
     var router: PersonListRouterProtocol?
     var viewModel: PersonList.ViewModel?
     var refreshControl = UIRefreshControl()
+    var loadingView: LoadingView?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -30,6 +33,9 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
         super.viewDidLoad()
         
         configureTableView()
+        view.backgroundColor = Constants.backgroundColor
+        
+        startRequest(isFromPullToRefresh: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,9 +44,6 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
-        
-        let request = PersonList.Request(needsNetworkLoad: false)
-        interactor?.requestPersonList(using: request)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -60,24 +63,46 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(refreshTableView), for: .valueChanged)
         tableView.addSubview(refreshControl)
+        
+        tableView.backgroundColor = Constants.backgroundColor
+        tableView.tableFooterView = UIView()
+    }
+    
+    func startRequest(isFromPullToRefresh: Bool) {
+        let request = PersonList.Request(isFromPullToRefresh: isFromPullToRefresh)
+        interactor?.requestPersonList(using: request)
     }
     
     @objc func refreshTableView() {
-        let request = PersonList.Request(needsNetworkLoad: true)
-        interactor?.requestPersonList(using: request)
+        startRequest(isFromPullToRefresh: true)
     }
     
     func showPersonList(using viewModel: PersonList.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
-        
-        if refreshControl.isRefreshing {
-            refreshControl.endRefreshing()
-        }
     }
     
-    func showRefreshControlUpdate(_ update: String) {
-        refreshControl.attributedTitle = NSAttributedString(string: update)
+    func showRefreshControlUpdate(_ updateText: String, shouldRefresh: Bool) {
+        if !shouldRefresh {
+            refreshControl.endRefreshing()
+        }
+        
+        refreshControl.attributedTitle = NSAttributedString(string: updateText)
+    }
+    
+    func showLoading() {
+        if loadingView == nil {
+            loadingView = LoadingView.viewNib().instantiate(withOwner: nil, options: nil).first as? LoadingView
+        }
+        
+        loadingView!.frame = view.frame
+        view.addSubview(loadingView!)
+        tableView.isHidden = true
+    }
+    
+    func hideLoading() {
+        loadingView?.removeFromSuperview()
+        tableView.isHidden = false
     }
 }
 

@@ -16,17 +16,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="pky-p3-E7b">
-                        <rect key="frame" x="16" y="19" width="382" height="57"/>
+                        <rect key="frame" x="16" y="16" width="382" height="63"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WFy-On-cMN">
-                                <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
+                                <rect key="frame" x="0.0" y="3" width="57" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="a0c-4Y-45D"/>
                                     <constraint firstAttribute="height" constant="57" id="vyL-nR-IMB"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqG-dI-g3R">
-                                <rect key="frame" x="73" y="18.5" width="309" height="20.5"/>
+                                <rect key="frame" x="73" y="21.5" width="309" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -35,9 +35,10 @@
                     </stackView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="pky-p3-E7b" secondAttribute="bottom" constant="16" id="Cyw-5X-3QF"/>
                     <constraint firstItem="pky-p3-E7b" firstAttribute="leading" secondItem="uij-ZZ-7W8" secondAttribute="leading" constant="16" id="Ehz-gF-eka"/>
-                    <constraint firstItem="pky-p3-E7b" firstAttribute="centerY" secondItem="uij-ZZ-7W8" secondAttribute="centerY" id="O4Z-aY-KFb"/>
                     <constraint firstAttribute="trailing" secondItem="pky-p3-E7b" secondAttribute="trailing" constant="16" id="TdU-E6-QpW"/>
+                    <constraint firstItem="pky-p3-E7b" firstAttribute="top" secondItem="uij-ZZ-7W8" secondAttribute="top" constant="16" id="sSi-F4-Eq6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
