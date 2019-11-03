@@ -96,13 +96,23 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
         }
         
         loadingView!.frame = view.frame
+        loadingView!.alpha = 0
         view.addSubview(loadingView!)
-        tableView.isHidden = true
+        
+        UIView.animate(withDuration: Constants.animationDuration) { [weak self] in
+            self?.loadingView?.alpha = 1
+        }
     }
     
     func hideLoading() {
-        loadingView?.removeFromSuperview()
-        tableView.isHidden = false
+        UIView.animate(withDuration: Constants.animationDuration, animations: { [weak self] in
+            self?.loadingView?.alpha = 0
+        }, completion: { [weak self] _ in
+            self?.loadingView?.removeFromSuperview()
+        })
+        
+        
+        
     }
 }
 

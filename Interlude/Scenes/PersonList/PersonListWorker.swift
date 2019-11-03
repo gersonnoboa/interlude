@@ -22,7 +22,7 @@ final class PersonListWorker: PersonListWorkerProtocol {
     }
     
     func fetchPersonList(using request: PersonList.Request, completion: @escaping (PersonList.Response?) -> Void) {
-        if let persistanceList = tryPersistanceLoad(), !request.isFromPullToRefresh {
+        if let persistanceList = tryPersistanceLoad(), !request.isFromPullToRefresh, false {
             print("load from persistance")
             completeOperation(using: persistanceList, completion: completion)
         } else {

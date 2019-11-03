@@ -14,4 +14,5 @@ final class Constants {
     
     static let listUserDefaultsKey = "listUserDefaultsKey"
     static let backgroundColor = UIColor(white: 0.95, alpha: 1)
+    static let animationDuration: TimeInterval = 0.3
 }
