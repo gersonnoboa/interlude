@@ -9,6 +9,8 @@
 import Foundation
 
 final class Constants {
-    //Write your API token here
+    // Write your API token here
     static let apiToken = ""
+    
+    static let listUserDefaultsKey = "listUserDefaultsKey"
 }

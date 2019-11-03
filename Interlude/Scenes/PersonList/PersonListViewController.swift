@@ -34,9 +34,6 @@ class PersonListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request = PersonList.Request()
-        interactor?.requestPersonList(using: request)
-        
         tableView.register(PersonListCell.viewNib(), forCellReuseIdentifier: PersonListCell.identifier())
     }
     
@@ -46,6 +43,9 @@ class PersonListViewController: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: true)
         }
+        
+        let request = PersonList.Request(needsNetworkLoad: false)
+        interactor?.requestPersonList(using: request)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
