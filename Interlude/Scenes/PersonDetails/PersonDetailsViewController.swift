@@ -35,6 +35,9 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
         if let request = request {
             interactor?.requestPersonDetails(using: request)
         }
+        
+        tableView.register(PersonDetailsNameImageCell.viewNib(), forCellReuseIdentifier: PersonDetailsNameImageCell.identifier())
+        tableView.register(PersonDetailsDataCell.viewNib(), forCellReuseIdentifier: PersonDetailsDataCell.identifier())
     }
     
     func showPersonDetails(using viewModel: PersonDetails.ViewModel) {
@@ -45,11 +48,41 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
 }
 
 extension PersonDetailsViewController: UITableViewDataSource, UITableViewDelegate {
+    enum Rows: Int {
+        case nameImage
+        case organization
+        case followers
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let viewModel = viewModel else { return UITableViewCell() }
+        
+        let row = Rows(rawValue: indexPath.row)!
+        
+        if row == .nameImage {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PersonDetailsNameImageCell.identifier()) as! PersonDetailsNameImageCell
+            
+            cell.nameLabel.text = viewModel.fullName
+            
+            return cell
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: PersonDetailsDataCell.identifier()) as! PersonDetailsDataCell
+        
+        switch row {
+        case .organization:
+            cell.titleLabel.text = "Organization"
+            cell.descriptionLabel.text = viewModel.organizationName
+        case .followers:
+            cell.titleLabel.text = "Followers"
+            cell.descriptionLabel.text = viewModel.followers
+        default: break
+        }
+        
+        return cell
     }
 }

@@ -19,6 +19,10 @@
 		7271C06B236E282C005331AB /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7271C06A236E282C005331AB /* Segues.swift */; };
 		72C80F71236F0F9400CEFB1E /* PersonDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */; };
 		72C80F73236F101900CEFB1E /* PersonDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F72236F101900CEFB1E /* PersonDetailsPresenter.swift */; };
+		72C80F77236F279400CEFB1E /* PersonDetailsNameImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F76236F279400CEFB1E /* PersonDetailsNameImageCell.swift */; };
+		72C80F79236F279F00CEFB1E /* PersonDetailsNameImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */; };
+		72C80F7B236F286000CEFB1E /* PersonDetailsDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */; };
+		72C80F7D236F286B00CEFB1E /* PersonDetailsDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */; };
 		72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F30236DE86F000344EF /* PersonListModels.swift */; };
 		72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F32236DE885000344EF /* PersonListInteractor.swift */; };
 		72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F62F34236DE8BC000344EF /* PersonListPresenter.swift */; };
@@ -64,6 +68,10 @@
 		7271C06A236E282C005331AB /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsInteractor.swift; sourceTree = "<group>"; };
 		72C80F72236F101900CEFB1E /* PersonDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsPresenter.swift; sourceTree = "<group>"; };
+		72C80F76236F279400CEFB1E /* PersonDetailsNameImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsNameImageCell.swift; sourceTree = "<group>"; };
+		72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailsNameImageCell.xib; sourceTree = "<group>"; };
+		72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsDataCell.swift; sourceTree = "<group>"; };
+		72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonDetailsDataCell.xib; sourceTree = "<group>"; };
 		72F62F30236DE86F000344EF /* PersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListModels.swift; sourceTree = "<group>"; };
 		72F62F32236DE885000344EF /* PersonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListInteractor.swift; sourceTree = "<group>"; };
 		72F62F34236DE8BC000344EF /* PersonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListPresenter.swift; sourceTree = "<group>"; };
@@ -182,6 +190,10 @@
 			children = (
 				72F62F47236E11DA000344EF /* PersonListCell.swift */,
 				72F62F49236E1750000344EF /* PersonListCell.xib */,
+				72C80F76236F279400CEFB1E /* PersonDetailsNameImageCell.swift */,
+				72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */,
+				72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */,
+				72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -322,8 +334,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72C80F79236F279F00CEFB1E /* PersonDetailsNameImageCell.xib in Resources */,
 				723129B5236DC6D50069CBEA /* LaunchScreen.storyboard in Resources */,
 				723129B2236DC6D50069CBEA /* Assets.xcassets in Resources */,
+				72C80F7D236F286B00CEFB1E /* PersonDetailsDataCell.xib in Resources */,
 				72F62F4A236E1750000344EF /* PersonListCell.xib in Resources */,
 				723129B0236DC6D40069CBEA /* Main.storyboard in Resources */,
 			);
@@ -414,6 +428,7 @@
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
 				7271C06B236E282C005331AB /* Segues.swift in Sources */,
 				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,
+				72C80F77236F279400CEFB1E /* PersonDetailsNameImageCell.swift in Sources */,
 				72F62F48236E11DA000344EF /* PersonListCell.swift in Sources */,
 				723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */,
 				72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */,
@@ -425,6 +440,7 @@
 				72F62F39236DEA9A000344EF /* PersonListRouter.swift in Sources */,
 				72F62F4D236E1926000344EF /* UIView+Extensions.swift in Sources */,
 				72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */,
+				72C80F7B236F286000CEFB1E /* PersonDetailsDataCell.swift in Sources */,
 				723129AB236DC6D40069CBEA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

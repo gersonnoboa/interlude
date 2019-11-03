@@ -24,8 +24,7 @@ struct PersonDetails {
     }
     
     struct ViewModel {
-        var firstName: String
-        var lastName: String
+        var fullName: String
         var organizationName: String
         var followers: String
     }

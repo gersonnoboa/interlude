@@ -20,8 +20,8 @@ final class PersonDetailsPresenter: PersonDetailsPresenterProtocol {
     }
     
     func presentPersonDetails(using response: PersonDetails.Response) {
-        let viewModel = PersonDetails.ViewModel(firstName: response.firstName,
-                                                lastName: response.lastName,
+        let fullName = "\(response.firstName) \(response.lastName.uppercased())"
+        let viewModel = PersonDetails.ViewModel(fullName: fullName,
                                                 organizationName: response.organizationName,
                                                 followers: "\(response.followers)")
         
