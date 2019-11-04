@@ -84,6 +84,15 @@ final class PersonListRemote: NSObject, Codable, RemoteObjectProtocol, NSSecureC
 final class PersonRemote: NSObject, Codable, NSSecureCoding {
     static var supportsSecureCoding: Bool = true
     
+    enum RootCodingKeys: CodingKey {
+        case id
+        case first_name
+        case last_name
+        case org_name
+        case followers_count
+        case picture_id
+    }
+    
     var id: Int
     var firstName: String
     var lastName: String
@@ -96,6 +105,15 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         self.lastName = lastName
         self.orgName = orgName
         self.followersCount = followersCount
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: RootCodingKeys.self)
+        id = try container.decode(Int.self, forKey: .id)
+        firstName = try container.decode(String.self, forKey: .first_name)
+        lastName = try container.decode(String.self, forKey: .last_name)
+        orgName = try container.decode(String.self, forKey: .org_name)
+        followersCount = try container.decode(Int.self, forKey: .followers_count)
     }
     
     convenience init?(coder: NSCoder) {

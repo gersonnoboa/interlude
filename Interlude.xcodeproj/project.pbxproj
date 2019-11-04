@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4027647DBB2C8550CBD53615 /* Pods_Interlude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */; };
+		72131AC8237091AA00BC2B20 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */; };
 		723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129A8236DC6D40069CBEA /* AppDelegate.swift */; };
 		723129AB236DC6D40069CBEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129AA236DC6D40069CBEA /* SceneDelegate.swift */; };
 		723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723129AC236DC6D40069CBEA /* PersonListViewController.swift */; };
@@ -55,6 +56,7 @@
 		0171A67B4DBD5825B5063CAA /* Pods-InterludeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InterludeTests.release.xcconfig"; path = "Target Support Files/Pods-InterludeTests/Pods-InterludeTests.release.xcconfig"; sourceTree = "<group>"; };
 		36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interlude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0D4CB0C619028C28FD845A /* Pods_InterludeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterludeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		723129A5236DC6D40069CBEA /* Interlude.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Interlude.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723129A8236DC6D40069CBEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723129AA236DC6D40069CBEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 			isa = PBXGroup;
 			children = (
 				72F62F4C236E1926000344EF /* UIView+Extensions.swift */,
+				72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
 				7271C06B236E282C005331AB /* Segues.swift in Sources */,
 				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,
+				72131AC8237091AA00BC2B20 /* UIImageView+Extensions.swift in Sources */,
 				72C80F77236F279400CEFB1E /* PersonDetailsNameImageCell.swift in Sources */,
 				72F62F48236E11DA000344EF /* PersonListCell.swift in Sources */,
 				723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */,

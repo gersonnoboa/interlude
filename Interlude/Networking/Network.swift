@@ -33,7 +33,6 @@ final class Network {
     
     private func decodeJSON<T: RemoteObjectProtocol>(using data: Data) -> T? {
         let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
         
         return try! decoder.decode(T.self, from: data)
     }
