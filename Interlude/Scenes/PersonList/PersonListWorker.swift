@@ -43,7 +43,8 @@ final class PersonListWorker: PersonListWorkerProtocol {
                                                                 firstName: $0.firstName,
                                                                 lastName: $0.lastName,
                                                                 organizationName: $0.orgName,
-                                                                followers: $0.followersCount)}
+                                                                followers: $0.followersCount,
+                                                                pictureURL: $0.pictureURL)}
         
         let response = PersonList.Response(personList: personList)
         completion(response)

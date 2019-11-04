@@ -41,7 +41,8 @@ final class PersonListRouter: PersonListRouterProtocol {
         let request = PersonDetails.Request(firstName: response.firstName,
                                             lastName: response.lastName,
                                             organizationName: response.organizationName,
-                                            followers: response.followers)
+                                            followers: response.followers,
+                                            pictureURL: response.pictureURL)
         destionation.request = request
     }
 }

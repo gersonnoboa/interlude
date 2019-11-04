@@ -29,6 +29,7 @@ struct Person {
         var lastName: String
         var organizationName: String
         var followers: Int
+        var pictureURL: String
     }
     
     struct ViewModel {
@@ -93,18 +94,28 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         case picture_id
     }
     
+    enum PictureIdCodingKeys: CodingKey {
+        case pictures
+    }
+    
+    enum PictureSizeCodingKeys: String, CodingKey {
+        case small = "128"
+    }
+    
     var id: Int
     var firstName: String
     var lastName: String
     var orgName: String
     var followersCount: Int
+    var pictureURL: String
     
-    init(id: Int, firstName: String, lastName: String, orgName: String, followersCount: Int) {
+    init(id: Int, firstName: String, lastName: String, orgName: String, followersCount: Int, pictureURL: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.orgName = orgName
         self.followersCount = followersCount
+        self.pictureURL = pictureURL
     }
     
     init(from decoder: Decoder) throws {
@@ -114,6 +125,10 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         lastName = try container.decode(String.self, forKey: .last_name)
         orgName = try container.decode(String.self, forKey: .org_name)
         followersCount = try container.decode(Int.self, forKey: .followers_count)
+        
+        let pictureIdContainer = try container.nestedContainer(keyedBy: PictureIdCodingKeys.self, forKey: .picture_id)
+        let pictureSizeContainer = try pictureIdContainer.nestedContainer(keyedBy: PictureSizeCodingKeys.self, forKey: .pictures)
+        pictureURL = try pictureSizeContainer.decode(String.self, forKey: .small)
     }
     
     convenience init?(coder: NSCoder) {
@@ -122,12 +137,14 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         let lastName = coder.decodeObject(forKey: "lastName") as! String
         let orgName = coder.decodeObject(forKey: "orgName") as! String
         let followersCount = coder.decodeInteger(forKey: "followersCount")
+        let pictureURL = coder.decodeObject(forKey: "pictureURL") as! String
         
         self.init(id: id,
                   firstName: firstName,
                   lastName: lastName,
                   orgName: orgName,
-                  followersCount: followersCount)
+                  followersCount: followersCount,
+                  pictureURL: pictureURL)
     }
     
     func encode(with coder: NSCoder) {
@@ -136,5 +153,6 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         coder.encode(lastName, forKey: "lastName")
         coder.encode(orgName, forKey: "orgName")
         coder.encode(followersCount, forKey: "followersCount")
+        coder.encode(pictureURL, forKey: "pictureURL")
     }
 }

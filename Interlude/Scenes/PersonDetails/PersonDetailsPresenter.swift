@@ -23,7 +23,8 @@ final class PersonDetailsPresenter: PersonDetailsPresenterProtocol {
         let fullName = "\(response.firstName) \(response.lastName.uppercased())"
         let viewModel = PersonDetails.ViewModel(fullName: fullName,
                                                 organizationName: response.organizationName,
-                                                followers: "\(response.followers)")
+                                                followers: "\(response.followers)",
+                                                pictureURL: response.pictureURL)
         
         DispatchQueue.main.async { [weak self] in
             self?.viewController?.showPersonDetails(using: viewModel)

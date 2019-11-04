@@ -23,7 +23,8 @@ final class PersonDetailsInteractor: PersonDetailsInteractorProtocol {
         let response = PersonDetails.Response(firstName: request.firstName,
                                               lastName: request.lastName,
                                               organizationName: request.organizationName,
-                                              followers: request.followers)
+                                              followers: request.followers,
+                                              pictureURL: request.pictureURL)
         presenter?.presentPersonDetails(using: response)
     }
 }

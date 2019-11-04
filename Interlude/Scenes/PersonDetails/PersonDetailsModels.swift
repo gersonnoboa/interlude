@@ -14,6 +14,7 @@ struct PersonDetails {
         var lastName: String
         var organizationName: String
         var followers: Int
+        var pictureURL: String
     }
     
     struct Response {
@@ -21,11 +22,13 @@ struct PersonDetails {
         var lastName: String
         var organizationName: String
         var followers: Int
+        var pictureURL: String
     }
     
     struct ViewModel {
         var fullName: String
         var organizationName: String
         var followers: String
+        var pictureURL: String
     }
 }
