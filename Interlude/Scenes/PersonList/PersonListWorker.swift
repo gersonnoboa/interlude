@@ -22,7 +22,7 @@ final class PersonListWorker: PersonListWorkerProtocol {
     }
     
     func fetchPersonList(using request: PersonList.Request, completion: @escaping (PersonList.Response?) -> Void) {
-        if let persistanceList = tryPersistanceLoad(), !request.isFromPullToRefresh, false {
+        if let persistanceList = Persistance.tryListLoad(using: userDefaults), !request.isFromPullToRefresh {
             print("load from persistance")
             completeOperation(using: persistanceList, completion: completion)
         } else {
@@ -48,21 +48,6 @@ final class PersonListWorker: PersonListWorkerProtocol {
         
         let response = PersonList.Response(personList: personList)
         completion(response)
-        tryPersistanceSave(using: list)
-    }
-    
-    private func tryPersistanceSave(using list: PersonListRemote) {
-        guard let data = try? NSKeyedArchiver.archivedData(withRootObject: list,
-                                                           requiringSecureCoding: false) else { return }
-        
-        userDefaults.set(data, forKey: Constants.listUserDefaultsKey)
-    }
-    
-    private func tryPersistanceLoad() -> PersonListRemote? {
-        guard let data = userDefaults.data(forKey: Constants.listUserDefaultsKey) else { return nil }
-        
-        let list = try! NSKeyedUnarchiver.unarchivedObject(ofClass: PersonListRemote.self, from: data)
-        
-        return list
+        Persistance.tryListSave(using: list, userDefaults: userDefaults)
     }
 }

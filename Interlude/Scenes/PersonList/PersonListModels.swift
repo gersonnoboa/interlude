@@ -92,6 +92,11 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         case org_name
         case followers_count
         case picture_id
+        case open_deals_count
+        case closed_deals_count
+        case active_flag
+        case update_time
+        case cc_email
     }
     
     enum PictureIdCodingKeys: CodingKey {
@@ -108,14 +113,34 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
     var orgName: String
     var followersCount: Int
     var pictureURL: String
+    var openDealsCount: Int
+    var closedDealsCount: Int
+    var isActive: Bool
+    var lastUpdated: String
+    var email: String
     
-    init(id: Int, firstName: String, lastName: String, orgName: String, followersCount: Int, pictureURL: String) {
+    init(id: Int,
+         firstName: String,
+         lastName: String,
+         orgName: String,
+         followersCount: Int,
+         pictureURL: String,
+         openDealsCount: Int,
+         closedDealsCount: Int,
+         isActive: Bool,
+         lastUpdated: String,
+         email: String) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
         self.orgName = orgName
         self.followersCount = followersCount
         self.pictureURL = pictureURL
+        self.openDealsCount = openDealsCount
+        self.closedDealsCount = closedDealsCount
+        self.isActive = isActive
+        self.lastUpdated = lastUpdated
+        self.email = email
     }
     
     init(from decoder: Decoder) throws {
@@ -125,6 +150,12 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         lastName = try container.decode(String.self, forKey: .last_name)
         orgName = try container.decode(String.self, forKey: .org_name)
         followersCount = try container.decode(Int.self, forKey: .followers_count)
+        openDealsCount = try container.decode(Int.self, forKey: .open_deals_count)
+        closedDealsCount = try container.decode(Int.self, forKey: .closed_deals_count)
+        isActive = try container.decode(Bool.self, forKey: .active_flag)
+        lastUpdated = try container.decode(String.self, forKey: .update_time)
+        email = try container.decode(String.self, forKey: .cc_email)
+        
         
         let pictureIdContainer = try container.nestedContainer(keyedBy: PictureIdCodingKeys.self, forKey: .picture_id)
         let pictureSizeContainer = try pictureIdContainer.nestedContainer(keyedBy: PictureSizeCodingKeys.self, forKey: .pictures)
@@ -132,27 +163,42 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
     }
     
     convenience init?(coder: NSCoder) {
-        let id = coder.decodeInteger(forKey: "id")
-        let firstName = coder.decodeObject(forKey: "firstName") as! String
-        let lastName = coder.decodeObject(forKey: "lastName") as! String
-        let orgName = coder.decodeObject(forKey: "orgName") as! String
-        let followersCount = coder.decodeInteger(forKey: "followersCount")
-        let pictureURL = coder.decodeObject(forKey: "pictureURL") as! String
+        let id = coder.decodeInteger(forKey: RootCodingKeys.id.stringValue)
+        let firstName = coder.decodeObject(forKey: RootCodingKeys.first_name.stringValue) as! String
+        let lastName = coder.decodeObject(forKey: RootCodingKeys.last_name.stringValue) as! String
+        let orgName = coder.decodeObject(forKey: RootCodingKeys.org_name.stringValue) as! String
+        let followersCount = coder.decodeInteger(forKey: RootCodingKeys.followers_count.stringValue)
+        let pictureURL = coder.decodeObject(forKey: RootCodingKeys.picture_id.stringValue) as! String
+        let openDealsCount = coder.decodeInteger(forKey: RootCodingKeys.open_deals_count.stringValue)
+        let closedDealsCount = coder.decodeInteger(forKey: RootCodingKeys.closed_deals_count.stringValue)
+        let isActive = coder.decodeBool(forKey: RootCodingKeys.active_flag.stringValue)
+        let lastUpdated = coder.decodeObject(forKey: RootCodingKeys.update_time.stringValue) as! String
+        let email = coder.decodeObject(forKey: RootCodingKeys.cc_email.stringValue) as! String
         
         self.init(id: id,
                   firstName: firstName,
                   lastName: lastName,
                   orgName: orgName,
                   followersCount: followersCount,
-                  pictureURL: pictureURL)
+                  pictureURL: pictureURL,
+                  openDealsCount: openDealsCount,
+                  closedDealsCount: closedDealsCount,
+                  isActive: isActive,
+                  lastUpdated: lastUpdated,
+                  email: email)
     }
     
     func encode(with coder: NSCoder) {
-        coder.encode(id, forKey: "id")
-        coder.encode(firstName, forKey: "firstName")
-        coder.encode(lastName, forKey: "lastName")
-        coder.encode(orgName, forKey: "orgName")
-        coder.encode(followersCount, forKey: "followersCount")
-        coder.encode(pictureURL, forKey: "pictureURL")
+        coder.encode(id, forKey: RootCodingKeys.id.stringValue)
+        coder.encode(firstName, forKey: RootCodingKeys.first_name.stringValue)
+        coder.encode(lastName, forKey: RootCodingKeys.last_name.stringValue)
+        coder.encode(orgName, forKey: RootCodingKeys.org_name.stringValue)
+        coder.encode(followersCount, forKey: RootCodingKeys.followers_count.stringValue)
+        coder.encode(pictureURL, forKey: RootCodingKeys.picture_id.stringValue)
+        coder.encode(openDealsCount, forKey: RootCodingKeys.open_deals_count.stringValue)
+        coder.encode(closedDealsCount, forKey: RootCodingKeys.closed_deals_count.stringValue)
+        coder.encode(isActive, forKey: RootCodingKeys.active_flag.stringValue)
+        coder.encode(lastUpdated, forKey: RootCodingKeys.update_time.stringValue)
+        coder.encode(email, forKey: RootCodingKeys.cc_email.stringValue)
     }
 }

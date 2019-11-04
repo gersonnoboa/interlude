@@ -37,7 +37,8 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
     
     private func configureLifecycle() {
         let presenter = PersonDetailsPresenter(viewController: self)
-        interactor = PersonDetailsInteractor(presenter: presenter)
+        let worker = PersonDetailsWorker()
+        interactor = PersonDetailsInteractor(presenter: presenter, worker: worker)
     }
     
     private func configureTableView() {
@@ -50,7 +51,6 @@ final class PersonDetailsViewController: UIViewController, PersonDetailsViewCont
     func showPersonDetails(using viewModel: PersonDetails.ViewModel) {
         self.viewModel = viewModel
         tableView.reloadData()
-        print(viewModel)
     }
 }
 
@@ -58,11 +58,18 @@ extension PersonDetailsViewController: UITableViewDataSource, UITableViewDelegat
     enum Rows: Int {
         case nameImage
         case organization
+        case email
         case followers
+        case openDeals
+        case closedDeals
+        case isActive
+        case lastUpdated
+        
+        static var count: Int { Rows.lastUpdated.rawValue + 1 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        Rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -85,9 +92,24 @@ extension PersonDetailsViewController: UITableViewDataSource, UITableViewDelegat
         case .organization:
             cell.titleLabel.text = "Organization"
             cell.descriptionLabel.text = viewModel.organizationName
+        case .email:
+            cell.titleLabel.text = "Email"
+            cell.descriptionLabel.text = viewModel.email
         case .followers:
             cell.titleLabel.text = "Followers"
             cell.descriptionLabel.text = viewModel.followers
+        case .openDeals:
+            cell.titleLabel.text = "Open deals"
+            cell.descriptionLabel.text = viewModel.openDealsCount
+        case .closedDeals:
+            cell.titleLabel.text = "Closed deals"
+            cell.descriptionLabel.text = viewModel.closedDealsCount
+        case .isActive:
+            cell.titleLabel.text = "Is active"
+            cell.descriptionLabel.text = viewModel.isActive
+        case .lastUpdated:
+            cell.titleLabel.text = "Last updated"
+            cell.descriptionLabel.text = viewModel.lastUpdated
         default: break
         }
         

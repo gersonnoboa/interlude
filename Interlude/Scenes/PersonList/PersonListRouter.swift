@@ -38,11 +38,7 @@ final class PersonListRouter: PersonListRouterProtocol {
             let interactor = source.interactor as? PersonListInteractor,
             let response = interactor.response?.personList[selectedIndexPath.row] else { return }
         
-        let request = PersonDetails.Request(firstName: response.firstName,
-                                            lastName: response.lastName,
-                                            organizationName: response.organizationName,
-                                            followers: response.followers,
-                                            pictureURL: response.pictureURL)
+        let request = PersonDetails.Request(id: response.id)
         destionation.request = request
     }
 }

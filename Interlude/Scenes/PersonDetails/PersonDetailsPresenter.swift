@@ -24,10 +24,27 @@ final class PersonDetailsPresenter: PersonDetailsPresenterProtocol {
         let viewModel = PersonDetails.ViewModel(fullName: fullName,
                                                 organizationName: response.organizationName,
                                                 followers: "\(response.followers)",
-                                                pictureURL: response.pictureURL)
+                                                pictureURL: response.pictureURL,
+                                                openDealsCount: "\(response.openDealsCount)",
+                                                closedDealsCount: "\(response.closedDealsCount)",
+                                                isActive: response.isActive ? "Yes": "No",
+                                                lastUpdated: readableDate(using: response.lastUpdated),
+                                                email: response.email)
         
         DispatchQueue.main.async { [weak self] in
             self?.viewController?.showPersonDetails(using: viewModel)
         }
+    }
+    
+    private func readableDate(using dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        guard let date = dateFormatter.date(from: dateString) else { return dateString }
+        
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .medium
+        
+        return dateFormatter.string(from: date)
     }
 }

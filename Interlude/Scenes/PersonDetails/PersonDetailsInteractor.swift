@@ -13,18 +13,17 @@ protocol PersonDetailsInteractorProtocol {
 }
 
 final class PersonDetailsInteractor: PersonDetailsInteractorProtocol {
-    var presenter: PersonDetailsPresenterProtocol?
+    var presenter: PersonDetailsPresenterProtocol
+    var worker: PersonDetailsWorkerProtocol
     
-    init(presenter: PersonDetailsPresenterProtocol) {
+    init(presenter: PersonDetailsPresenterProtocol, worker: PersonDetailsWorkerProtocol) {
         self.presenter = presenter
+        self.worker = worker
     }
     
     func requestPersonDetails(using request: PersonDetails.Request) {
-        let response = PersonDetails.Response(firstName: request.firstName,
-                                              lastName: request.lastName,
-                                              organizationName: request.organizationName,
-                                              followers: request.followers,
-                                              pictureURL: request.pictureURL)
-        presenter?.presentPersonDetails(using: response)
+        guard let response = worker.fetchPersonDetails(using: request) else { return }
+        
+        presenter.presentPersonDetails(using: response)
     }
 }

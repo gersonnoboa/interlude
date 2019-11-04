@@ -10,11 +10,7 @@ import Foundation
 
 struct PersonDetails {
     struct Request {
-        var firstName: String
-        var lastName: String
-        var organizationName: String
-        var followers: Int
-        var pictureURL: String
+        var id: Int
     }
     
     struct Response {
@@ -23,6 +19,11 @@ struct PersonDetails {
         var organizationName: String
         var followers: Int
         var pictureURL: String
+        var openDealsCount: Int
+        var closedDealsCount: Int
+        var isActive: Bool
+        var lastUpdated: String
+        var email: String
     }
     
     struct ViewModel {
@@ -30,5 +31,10 @@ struct PersonDetails {
         var organizationName: String
         var followers: String
         var pictureURL: String
+        var openDealsCount: String
+        var closedDealsCount: String
+        var isActive: String
+        var lastUpdated: String
+        var email: String
     }
 }
