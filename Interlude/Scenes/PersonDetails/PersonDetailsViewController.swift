@@ -74,6 +74,7 @@ extension PersonDetailsViewController: UITableViewDataSource, UITableViewDelegat
             let cell = tableView.dequeueReusableCell(withIdentifier: PersonDetailsNameImageCell.identifier()) as! PersonDetailsNameImageCell
             
             cell.nameLabel.text = viewModel.fullName
+            cell.photoImageView?.loadImage(urlString: viewModel.pictureURL)
             
             return cell
         }
