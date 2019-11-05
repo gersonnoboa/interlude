@@ -10,6 +10,14 @@
 		4027647DBB2C8550CBD53615 /* Pods_Interlude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */; };
 		7200781A2371FD850040FFD3 /* MockedPersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078192371FD850040FFD3 /* MockedPersonListModels.swift */; };
 		7200781C23721D0D0040FFD3 /* MockedPersonListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200781B23721D0D0040FFD3 /* MockedPersonListRouter.swift */; };
+		7200783D2372256C0040FFD3 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078372372256C0040FFD3 /* QuestionsViewController.swift */; };
+		7200783E2372256C0040FFD3 /* QuestionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078382372256C0040FFD3 /* QuestionsInteractor.swift */; };
+		7200783F2372256C0040FFD3 /* QuestionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078392372256C0040FFD3 /* QuestionsPresenter.swift */; };
+		720078402372256C0040FFD3 /* QuestionsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200783A2372256C0040FFD3 /* QuestionsModels.swift */; };
+		720078412372256C0040FFD3 /* QuestionsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200783B2372256C0040FFD3 /* QuestionsRouter.swift */; };
+		720078422372256C0040FFD3 /* QuestionsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200783C2372256C0040FFD3 /* QuestionsWorker.swift */; };
+		720078442372265F0040FFD3 /* DynamicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078432372265F0040FFD3 /* DynamicCell.swift */; };
+		720078462372266E0040FFD3 /* DynamicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 720078452372266E0040FFD3 /* DynamicCell.xib */; };
 		72131AC8237091AA00BC2B20 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */; };
 		72131ACA2370D0BD00BC2B20 /* PersonDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131AC92370D0BD00BC2B20 /* PersonDetailsWorker.swift */; };
 		72131ACD2370D15C00BC2B20 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131ACC2370D15C00BC2B20 /* Persistance.swift */; };
@@ -68,6 +76,14 @@
 		6F0D4CB0C619028C28FD845A /* Pods_InterludeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterludeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720078192371FD850040FFD3 /* MockedPersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPersonListModels.swift; sourceTree = "<group>"; };
 		7200781B23721D0D0040FFD3 /* MockedPersonListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPersonListRouter.swift; sourceTree = "<group>"; };
+		720078372372256C0040FFD3 /* QuestionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
+		720078382372256C0040FFD3 /* QuestionsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsInteractor.swift; sourceTree = "<group>"; };
+		720078392372256C0040FFD3 /* QuestionsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsPresenter.swift; sourceTree = "<group>"; };
+		7200783A2372256C0040FFD3 /* QuestionsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsModels.swift; sourceTree = "<group>"; };
+		7200783B2372256C0040FFD3 /* QuestionsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsRouter.swift; sourceTree = "<group>"; };
+		7200783C2372256C0040FFD3 /* QuestionsWorker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsWorker.swift; sourceTree = "<group>"; };
+		720078432372265F0040FFD3 /* DynamicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicCell.swift; sourceTree = "<group>"; };
+		720078452372266E0040FFD3 /* DynamicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DynamicCell.xib; sourceTree = "<group>"; };
 		72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		72131AC92370D0BD00BC2B20 /* PersonDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsWorker.swift; sourceTree = "<group>"; };
 		72131ACC2370D15C00BC2B20 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
@@ -145,6 +161,19 @@
 				0171A67B4DBD5825B5063CAA /* Pods-InterludeTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7200782A237225480040FFD3 /* Questions */ = {
+			isa = PBXGroup;
+			children = (
+				720078382372256C0040FFD3 /* QuestionsInteractor.swift */,
+				720078392372256C0040FFD3 /* QuestionsPresenter.swift */,
+				720078372372256C0040FFD3 /* QuestionsViewController.swift */,
+				7200783C2372256C0040FFD3 /* QuestionsWorker.swift */,
+				7200783B2372256C0040FFD3 /* QuestionsRouter.swift */,
+				7200783A2372256C0040FFD3 /* QuestionsModels.swift */,
+			);
+			path = Questions;
 			sourceTree = "<group>";
 		};
 		72131ACB2370D15200BC2B20 /* Classes */ = {
@@ -261,6 +290,7 @@
 			children = (
 				72F62F44236DF5C9000344EF /* PersonDetails */,
 				72F62F2E236DE7A2000344EF /* PersonList */,
+				7200782A237225480040FFD3 /* Questions */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -287,6 +317,8 @@
 				72C80F78236F279F00CEFB1E /* PersonDetailsNameImageCell.xib */,
 				72C80F7A236F286000CEFB1E /* PersonDetailsDataCell.swift */,
 				72C80F7C236F286B00CEFB1E /* PersonDetailsDataCell.xib */,
+				720078432372265F0040FFD3 /* DynamicCell.swift */,
+				720078452372266E0040FFD3 /* DynamicCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -434,6 +466,7 @@
 				723129B2236DC6D50069CBEA /* Assets.xcassets in Resources */,
 				72C80F7D236F286B00CEFB1E /* PersonDetailsDataCell.xib in Resources */,
 				72C80F83236F474100CEFB1E /* LoadingView.xib in Resources */,
+				720078462372266E0040FFD3 /* DynamicCell.xib in Resources */,
 				72F62F4A236E1750000344EF /* PersonListCell.xib in Resources */,
 				723129B0236DC6D40069CBEA /* Main.storyboard in Resources */,
 			);
@@ -519,25 +552,32 @@
 			files = (
 				72F62F43236DF2BC000344EF /* RemoteObject.swift in Sources */,
 				72F62F46236DF6F7000344EF /* PersonDetailsModels.swift in Sources */,
+				7200783F2372256C0040FFD3 /* QuestionsPresenter.swift in Sources */,
 				72C80F73236F101900CEFB1E /* PersonDetailsPresenter.swift in Sources */,
 				72C80F81236F473200CEFB1E /* LoadingView.swift in Sources */,
+				7200783D2372256C0040FFD3 /* QuestionsViewController.swift in Sources */,
 				72C80F71236F0F9400CEFB1E /* PersonDetailsInteractor.swift in Sources */,
 				723129AD236DC6D40069CBEA /* PersonListViewController.swift in Sources */,
+				720078412372256C0040FFD3 /* QuestionsRouter.swift in Sources */,
 				7271C06B236E282C005331AB /* Segues.swift in Sources */,
 				72F62F35236DE8BC000344EF /* PersonListPresenter.swift in Sources */,
+				720078402372256C0040FFD3 /* QuestionsModels.swift in Sources */,
 				72131AC8237091AA00BC2B20 /* UIImageView+Extensions.swift in Sources */,
 				72C80F77236F279400CEFB1E /* PersonDetailsNameImageCell.swift in Sources */,
 				72F62F48236E11DA000344EF /* PersonListCell.swift in Sources */,
 				723129A9236DC6D40069CBEA /* AppDelegate.swift in Sources */,
 				72F62F31236DE86F000344EF /* PersonListModels.swift in Sources */,
+				720078442372265F0040FFD3 /* DynamicCell.swift in Sources */,
 				72131ACD2370D15C00BC2B20 /* Persistance.swift in Sources */,
 				72F62F3D236DEB49000344EF /* Links.swift in Sources */,
 				7271C069236E2390005331AB /* PersonDetailsViewController.swift in Sources */,
 				72F62F41236DEF73000344EF /* Network.swift in Sources */,
+				720078422372256C0040FFD3 /* QuestionsWorker.swift in Sources */,
 				72F62F3F236DEB9C000344EF /* Constants.swift in Sources */,
 				72F62F37236DEA43000344EF /* PersonListWorker.swift in Sources */,
 				72F62F39236DEA9A000344EF /* PersonListRouter.swift in Sources */,
 				72131ACA2370D0BD00BC2B20 /* PersonDetailsWorker.swift in Sources */,
+				7200783E2372256C0040FFD3 /* QuestionsInteractor.swift in Sources */,
 				72F62F4D236E1926000344EF /* UIView+Extensions.swift in Sources */,
 				72F62F33236DE885000344EF /* PersonListInteractor.swift in Sources */,
 				72C80F7B236F286000CEFB1E /* PersonDetailsDataCell.swift in Sources */,
