@@ -14,4 +14,10 @@ final class MockedPersonListModels {
         
         return PersonList.Response(personList: [person])
     }
+    
+    static var personListViewModel: PersonList.ViewModel {
+        let person = Person.ViewModel(fullName: "Gerson Noboa", organizationName: "Pipedrive", followers: "2010")
+        
+        return PersonList.ViewModel(personList: [person])
+    }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4027647DBB2C8550CBD53615 /* Pods_Interlude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */; };
 		7200781A2371FD850040FFD3 /* MockedPersonListModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720078192371FD850040FFD3 /* MockedPersonListModels.swift */; };
+		7200781C23721D0D0040FFD3 /* MockedPersonListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7200781B23721D0D0040FFD3 /* MockedPersonListRouter.swift */; };
 		72131AC8237091AA00BC2B20 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */; };
 		72131ACA2370D0BD00BC2B20 /* PersonDetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131AC92370D0BD00BC2B20 /* PersonDetailsWorker.swift */; };
 		72131ACD2370D15C00BC2B20 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72131ACC2370D15C00BC2B20 /* Persistance.swift */; };
@@ -66,6 +67,7 @@
 		36CDB9E8C9366D2D42BFAB65 /* Pods_Interlude.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Interlude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F0D4CB0C619028C28FD845A /* Pods_InterludeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InterludeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		720078192371FD850040FFD3 /* MockedPersonListModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPersonListModels.swift; sourceTree = "<group>"; };
+		7200781B23721D0D0040FFD3 /* MockedPersonListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedPersonListRouter.swift; sourceTree = "<group>"; };
 		72131AC7237091AA00BC2B20 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		72131AC92370D0BD00BC2B20 /* PersonDetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsWorker.swift; sourceTree = "<group>"; };
 		72131ACC2370D15C00BC2B20 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 				72D2998C2371F78E00751098 /* MockedPersonListPresenter.swift */,
 				72D2998A2371F78E00751098 /* MockedPersonListViewController.swift */,
 				720078192371FD850040FFD3 /* MockedPersonListModels.swift */,
+				7200781B23721D0D0040FFD3 /* MockedPersonListRouter.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -549,6 +552,7 @@
 				72D2998F2371F78E00751098 /* MockedPersonListInteractor.swift in Sources */,
 				7200781A2371FD850040FFD3 /* MockedPersonListModels.swift in Sources */,
 				72D299922371F78E00751098 /* MockedPersonListPresenter.swift in Sources */,
+				7200781C23721D0D0040FFD3 /* MockedPersonListRouter.swift in Sources */,
 				72D299912371F78E00751098 /* PersonListPresenterTests.swift in Sources */,
 				72D299982371F8F500751098 /* MockedPersonListWorker.swift in Sources */,
 				72D2998D2371F78E00751098 /* PersonListViewControllerTests.swift in Sources */,
