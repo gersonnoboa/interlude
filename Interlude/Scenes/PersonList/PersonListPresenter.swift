@@ -23,7 +23,6 @@ final class PersonListPresenter: PersonListPresenterProtocol {
     }
     
     func presentPersonList(using response: PersonList.Response) {
-        
         let list = response.personList.map { person -> Person.ViewModel in
             let fullName = "\(person.firstName) \(person.lastName.uppercased())"
             let organizationName = "Part of \(person.organizationName)"
