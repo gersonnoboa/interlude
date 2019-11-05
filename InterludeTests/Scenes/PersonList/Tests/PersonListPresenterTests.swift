@@ -57,6 +57,79 @@ final class PersonListPresenterTests: QuickSpec {
                     expect(viewController.viewModel?.personList.first?.followers).toEventually(equal("1 follower"))
                 }
             }
+            
+            context("On showing loading") {
+                beforeEach {
+                    viewController = MockedPersonListViewController()
+                    presenter = PersonListPresenter(viewController: viewController)
+                    
+                    presenter.presentLoading(isFromPullToRefresh: false)
+                }
+                
+                it("should show the loading only if the request doesn't come from pull to refresh") {
+                    expect(viewController.spy_showLoading).toEventually(beTrue())
+                }
+            }
+            
+            context("On hide loading") {
+                beforeEach {
+                    viewController = MockedPersonListViewController()
+                    presenter = PersonListPresenter(viewController: viewController)
+                    
+                    presenter.hideLoading(isFromPullToRefresh: false)
+                }
+                
+                it("should hide the loading") {
+                    expect(viewController.spy_hideLoading).toEventually(beTrue())
+                }
+            }
+            
+            context("Refresh control appearance") {
+                beforeEach {
+                    viewController = MockedPersonListViewController()
+                    presenter = PersonListPresenter(viewController: viewController)
+                    
+                    presenter.presentLoading(isFromPullToRefresh: true)
+                }
+                
+                it("should trigger the refresh control method") {
+                    expect(viewController.spy_showRefreshControlUpdate).toEventually(beTrue())
+                }
+                
+                it("should be refreshing the refresh control") {
+                    expect(viewController.shouldRefresh).toEventually(beTrue())
+                }
+            }
+            
+            context("Refresh control dismissal") {
+                beforeEach {
+                    viewController = MockedPersonListViewController()
+                    presenter = PersonListPresenter(viewController: viewController)
+                    
+                    presenter.hideLoading(isFromPullToRefresh: true)
+                }
+                
+                it("should trigger the refresh control method") {
+                    expect(viewController.spy_showRefreshControlUpdate).toEventually(beTrue())
+                }
+                
+                it("should be refreshing the refresh control") {
+                    expect(viewController.shouldRefresh).toEventually(beFalse())
+                }
+            }
+            
+            context("On error") {
+                beforeEach {
+                    viewController = MockedPersonListViewController()
+                    presenter = PersonListPresenter(viewController: viewController)
+                    
+                    presenter.presentError()
+                }
+                
+                it("should show the error") {
+                    expect(viewController.spy_showError).toEventually(beTrue())
+                }
+            }
         }
     }
 }
