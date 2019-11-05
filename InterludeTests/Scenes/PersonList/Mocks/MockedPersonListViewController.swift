@@ -8,11 +8,36 @@
 
 @testable import Interlude
 
-final class MockedPersonListViewController: PersonListViewController {
+final class MockedPersonListViewController: PersonListViewControllerProtocol {
     var spy_showPersonListCalled = false
+    var spy_showRefreshControlUpdate = false
+    var spy_showLoading = false
+    var spy_hideLoading = false
+    var spy_showError = false
+    var viewModel: PersonList.ViewModel?
+    var updateText: String?
+    var shouldRefresh: Bool?
     
-    override func showPersonList(using viewModel: PersonList.ViewModel) {
+    func showPersonList(using viewModel: PersonList.ViewModel) {
         spy_showPersonListCalled = true
         self.viewModel = viewModel
+    }
+    
+    func showRefreshControlUpdate(_ updateText: String, shouldRefresh: Bool) {
+        spy_showRefreshControlUpdate = true
+        self.updateText = updateText
+        self.shouldRefresh = shouldRefresh
+    }
+    
+    func showLoading() {
+        spy_showLoading = true
+    }
+    
+    func hideLoading() {
+        spy_hideLoading = true
+    }
+    
+    func showError() {
+        spy_showError = true
     }
 }
