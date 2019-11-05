@@ -13,6 +13,7 @@ protocol PersonListViewControllerProtocol: class {
     func showRefreshControlUpdate(_ updateText: String, shouldRefresh: Bool)
     func showLoading()
     func hideLoading()
+    func showError()
 }
 
 class PersonListViewController: UIViewController, PersonListViewControllerProtocol {
@@ -83,7 +84,7 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
     }
     
     func showRefreshControlUpdate(_ updateText: String, shouldRefresh: Bool) {
-        if !shouldRefresh {
+        if !shouldRefresh && refreshControl.isRefreshing {
             refreshControl.endRefreshing()
         }
         
@@ -110,9 +111,14 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
         }, completion: { [weak self] _ in
             self?.loadingView?.removeFromSuperview()
         })
+    }
+    
+    func showError() {
+        let alert = UIAlertController(title: "Error", message: "There was an error with the request. Please try again later.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okButton)
         
-        
-        
+        present(alert, animated: true, completion: nil)
     }
 }
 

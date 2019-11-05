@@ -43,7 +43,12 @@ final class PersonListPresenter: PersonListPresenterProtocol {
     }
     
     func presentError() {
+        hideLoading(isFromPullToRefresh: true)
+        hideLoading(isFromPullToRefresh: false)
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + Constants.animationDuration) { [weak self] in
+            self?.viewController?.showError()
+        }
     }
     
     func presentLoading(isFromPullToRefresh: Bool) {
