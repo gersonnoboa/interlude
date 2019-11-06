@@ -102,7 +102,7 @@
         <scene sceneID="wUf-Va-fap">
             <objects>
                 <navigationController id="iQM-mZ-s2d" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Theory" id="bwD-kM-Qvo"/>
+                    <tabBarItem key="tabBarItem" title="Theory" image="questionmark.diamond" catalog="system" selectedImage="questionmark.diamond.fill" id="bwD-kM-Qvo"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zG7-t2-7bW">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -119,7 +119,7 @@
         <scene sceneID="kgl-nQ-fUU">
             <objects>
                 <navigationController id="uWP-2f-WhU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pipedrive API" id="m4Q-pM-Smt"/>
+                    <tabBarItem key="tabBarItem" title="Pipedrive API" image="cloud" catalog="system" selectedImage="cloud.fill" id="m4Q-pM-Smt"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kJp-Oh-1aY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -203,4 +203,10 @@
             <point key="canvasLocation" x="1534.7826086956522" y="555.80357142857144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cloud" catalog="system" width="64" height="42"/>
+        <image name="cloud.fill" catalog="system" width="64" height="42"/>
+        <image name="questionmark.diamond" catalog="system" width="64" height="60"/>
+        <image name="questionmark.diamond.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
