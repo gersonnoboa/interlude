@@ -13,9 +13,34 @@
 import UIKit
 
 protocol QuestionsRouterProtocol {
-  //func routeToSomewhere()
+    func navigateToAnswer()
+    func passDataToNextScene(using segue: UIStoryboardSegue)
 }
 
 final class QuestionsRouter: QuestionsRouterProtocol {
-    //func routeToSomewhere(segue: UIStoryboardSegue?) { }
+    weak var viewController: QuestionsViewController?
+    
+    init(viewController: QuestionsViewController?) {
+        self.viewController = viewController
+    }
+    
+    func navigateToAnswer() {
+        viewController?.performSegue(withIdentifier: Segues.questionsToAnswer, sender: nil)
+    }
+    
+    func passDataToNextScene(using segue: UIStoryboardSegue) {
+        if segue.identifier == Segues.questionsToAnswer {
+            passDataToAnswer(using: segue)
+        }
+    }
+    
+    private func passDataToAnswer(using segue: UIStoryboardSegue) {
+        let source = segue.source as! QuestionsViewController
+        let destionation = segue.destination as! AnswerViewController
+        
+        guard let selectedIndexPath = source.tableView.indexPathForSelectedRow else { return }
+        
+        let request = Answer.Request(index: selectedIndexPath.row)
+        destionation.request = request
+    }
 }

@@ -20,7 +20,7 @@ final class AnswerPresenter: AnswerPresenterProtocol {
     }
     
     func presentAnswer(with response: Answer.Response) {
-        let viewModel = Answer.ViewModel()
+        let viewModel = Answer.ViewModel(text: response.text)
         viewController?.showAnswer(with: viewModel)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol QuestionsInteractorProtocol {
-    func fetchQuestions()
+    func requestQuestions()
 }
 
 final class QuestionsInteractor: QuestionsInteractorProtocol {
@@ -21,7 +21,7 @@ final class QuestionsInteractor: QuestionsInteractorProtocol {
         self.worker = worker
     }
     
-    func fetchQuestions() {
+    func requestQuestions() {
         let response = worker.fetchQuestions()
         
         presenter.presentQuestions(with: response)

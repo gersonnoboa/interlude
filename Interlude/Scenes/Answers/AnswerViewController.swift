@@ -13,11 +13,12 @@ protocol AnswerViewControllerProtocol: class {
 }
 
 final class AnswerViewController: UIViewController, AnswerViewControllerProtocol {
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textView: UITextView!
     
     var interactor: AnswerInteractorProtocol?
     var viewModel: Answer.ViewModel?
-  
+    var request: Answer.Request?
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -37,23 +38,13 @@ final class AnswerViewController: UIViewController, AnswerViewControllerProtocol
     }
     
     func startRequest() {
-        let request = Answer.Request()
-        interactor?.fetchAnswer(with: request)
+        guard let request = request else { return }
+        
+        interactor?.requestAnswer(with: request)
     }
   
     func showAnswer(with viewModel: Answer.ViewModel) {
         self.viewModel = viewModel
-        tableView.reloadData()
-    }
-}
-
-extension AnswerViewController: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //guard let viewModel = viewModel else { return UITableViewCell() }
-        return UITableViewCell()
+        textView.text = viewModel.text
     }
 }

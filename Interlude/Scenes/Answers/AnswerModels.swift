@@ -9,9 +9,15 @@
 import Foundation
 
 struct Answer {
-    struct Request { }
+    struct Request {
+        var index: Int
+    }
     
-    struct Response { }
+    struct Response {
+        var text: String
+    }
     
-    struct ViewModel { }
+    struct ViewModel {
+        var text: String
+    }
 }

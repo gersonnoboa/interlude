@@ -161,11 +161,46 @@
                     <navigationItem key="navigationItem" title="Questions" id="Fzw-fl-Bg4"/>
                     <connections>
                         <outlet property="tableView" destination="FPh-Uj-JvD" id="V3s-GP-gSt"/>
+                        <segue destination="TxF-be-shh" kind="show" identifier="QuestionsToAnswer" id="YKz-Qi-fQA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgC-Cz-Eey" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671.01449275362324" y="555.80357142857144"/>
+        </scene>
+        <!--Answer-->
+        <scene sceneID="LKV-gI-8su">
+            <objects>
+                <viewController id="TxF-be-shh" customClass="AnswerViewController" customModule="Interlude" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bMV-jF-Zdg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IrG-V8-nWR">
+                                <rect key="frame" x="16" y="104" width="382" height="693"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WhQ-cd-UHe" firstAttribute="bottom" secondItem="IrG-V8-nWR" secondAttribute="bottom" constant="16" id="4vf-VS-ErJ"/>
+                            <constraint firstItem="IrG-V8-nWR" firstAttribute="leading" secondItem="WhQ-cd-UHe" secondAttribute="leading" constant="16" id="7f2-0z-fu9"/>
+                            <constraint firstItem="IrG-V8-nWR" firstAttribute="top" secondItem="WhQ-cd-UHe" secondAttribute="top" constant="16" id="eRD-u8-Orw"/>
+                            <constraint firstItem="WhQ-cd-UHe" firstAttribute="trailing" secondItem="IrG-V8-nWR" secondAttribute="trailing" constant="16" id="gUQ-cW-VhM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WhQ-cd-UHe"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Answer" id="auD-ZN-h6H"/>
+                    <connections>
+                        <outlet property="textView" destination="IrG-V8-nWR" id="v2G-Hd-T77"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncF-ph-dmk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1534.7826086956522" y="555.80357142857144"/>
         </scene>
     </scenes>
 </document>

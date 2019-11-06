@@ -17,6 +17,7 @@ final class QuestionsViewController: UIViewController, QuestionsViewControllerPr
     
     var interactor: QuestionsInteractorProtocol?
     var viewModel: Questions.ViewModel?
+    var router: QuestionsRouterProtocol?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -39,14 +40,19 @@ final class QuestionsViewController: UIViewController, QuestionsViewControllerPr
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router?.passDataToNextScene(using: segue)
+    }
+    
     func configureLifecycle() {
         let worker = QuestionsWorker()
         let presenter = QuestionsPresenter(viewController: self)
         interactor = QuestionsInteractor(presenter: presenter, worker: worker)
+        router = QuestionsRouter(viewController: self)
     }
     
     func startRequest() {
-        interactor?.fetchQuestions()
+        interactor?.requestQuestions()
     }
   
     func showQuestions(with viewModel: Questions.ViewModel) {
@@ -68,5 +74,9 @@ extension QuestionsViewController: UITableViewDataSource, UITableViewDelegate {
         cell.dynamicLabel.text = question
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.navigateToAnswer()
     }
 }

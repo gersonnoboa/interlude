@@ -10,4 +10,5 @@ import Foundation
 
 final class Segues {
     static let personListToPersonDetails = "PersonListToPersonDetails"
+    static let questionsToAnswer = "QuestionsToAnswer"
 }

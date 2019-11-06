@@ -9,7 +9,7 @@
 import Foundation
 
 protocol AnswerInteractorProtocol {
-    func fetchAnswer(with request: Answer.Request)
+    func requestAnswer(with request: Answer.Request)
 }
 
 final class AnswerInteractor: AnswerInteractorProtocol {
@@ -22,7 +22,9 @@ final class AnswerInteractor: AnswerInteractorProtocol {
         self.worker = worker
     }
     
-    func fetchAnswer(with request: Answer.Request) {
-        //self?.presenter?.presentAnswer(with: response)
+    func requestAnswer(with request: Answer.Request) {
+        guard let response = worker?.fetchAnswer(with: request) else { return }
+        
+        presenter?.presentAnswer(with: response)
     }
 }
