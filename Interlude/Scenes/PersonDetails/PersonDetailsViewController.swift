@@ -65,11 +65,11 @@ extension PersonDetailsViewController: UITableViewDataSource, UITableViewDelegat
         case isActive
         case lastUpdated
         
-        static var count: Int { Rows.lastUpdated.rawValue + 1 }
+        static var count: Int { return Rows.lastUpdated.rawValue + 1 }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Rows.count
+        return Rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

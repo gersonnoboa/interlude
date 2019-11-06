@@ -11,7 +11,13 @@ import UIKit
 var imageCache = NSCache<AnyObject, AnyObject>()
 
 extension UIImageView {
-    func loadImage(urlString: String) {
+    func loadImage(urlString: String?, placeholderImageName: String = "personDetailsImagePlaceholder") {
+        guard let urlString = urlString else {
+            self.image = UIImage(named: placeholderImageName)
+            
+            return
+        }
+        
         if let cacheImage = imageCache.object(forKey: urlString as AnyObject) as? UIImage {
             self.image = cacheImage
             
@@ -21,8 +27,9 @@ extension UIImageView {
         guard let url = URL(string: urlString) else { return }
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                print("Couldn't download image: ", error)
+            if error != nil {
+                self.image = UIImage(named: placeholderImageName)
+                
                 return
             }
             

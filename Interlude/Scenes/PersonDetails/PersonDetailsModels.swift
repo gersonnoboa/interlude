@@ -18,7 +18,7 @@ struct PersonDetails {
         var lastName: String
         var organizationName: String
         var followers: Int
-        var pictureURL: String
+        var pictureURL: String?
         var openDealsCount: Int
         var closedDealsCount: Int
         var isActive: Bool
@@ -30,7 +30,7 @@ struct PersonDetails {
         var fullName: String
         var organizationName: String
         var followers: String
-        var pictureURL: String
+        var pictureURL: String?
         var openDealsCount: String
         var closedDealsCount: String
         var isActive: String

@@ -29,7 +29,7 @@ struct Person {
         var lastName: String
         var organizationName: String
         var followers: Int
-        var pictureURL: String
+        var pictureURL: String?
     }
     
     struct ViewModel {
@@ -112,7 +112,7 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
     var lastName: String
     var orgName: String
     var followersCount: Int
-    var pictureURL: String
+    var pictureURL: String?
     var openDealsCount: Int
     var closedDealsCount: Int
     var isActive: Bool
@@ -124,7 +124,7 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
          lastName: String,
          orgName: String,
          followersCount: Int,
-         pictureURL: String,
+         pictureURL: String?,
          openDealsCount: Int,
          closedDealsCount: Int,
          isActive: Bool,
@@ -157,9 +157,9 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         email = try container.decode(String.self, forKey: .cc_email)
         
         
-        let pictureIdContainer = try container.nestedContainer(keyedBy: PictureIdCodingKeys.self, forKey: .picture_id)
-        let pictureSizeContainer = try pictureIdContainer.nestedContainer(keyedBy: PictureSizeCodingKeys.self, forKey: .pictures)
-        pictureURL = try pictureSizeContainer.decode(String.self, forKey: .small)
+        let pictureIdContainer = try? container.nestedContainer(keyedBy: PictureIdCodingKeys.self, forKey: .picture_id)
+        let pictureSizeContainer = try? pictureIdContainer?.nestedContainer(keyedBy: PictureSizeCodingKeys.self, forKey: .pictures)
+        pictureURL = try? pictureSizeContainer?.decode(String?.self, forKey: .small)
     }
     
     convenience init?(coder: NSCoder) {
@@ -168,7 +168,7 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
         let lastName = coder.decodeObject(forKey: RootCodingKeys.last_name.stringValue) as! String
         let orgName = coder.decodeObject(forKey: RootCodingKeys.org_name.stringValue) as! String
         let followersCount = coder.decodeInteger(forKey: RootCodingKeys.followers_count.stringValue)
-        let pictureURL = coder.decodeObject(forKey: RootCodingKeys.picture_id.stringValue) as! String
+        let pictureURL = coder.decodeObject(forKey: RootCodingKeys.picture_id.stringValue) as? String
         let openDealsCount = coder.decodeInteger(forKey: RootCodingKeys.open_deals_count.stringValue)
         let closedDealsCount = coder.decodeInteger(forKey: RootCodingKeys.closed_deals_count.stringValue)
         let isActive = coder.decodeBool(forKey: RootCodingKeys.active_flag.stringValue)
