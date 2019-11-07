@@ -34,6 +34,6 @@ final class Network {
     private func decodeJSON<T: RemoteObjectProtocol>(using data: Data) -> T? {
         let decoder = JSONDecoder()
         
-        return try! decoder.decode(T.self, from: data)
+        return try? decoder.decode(T.self, from: data)
     }
 }

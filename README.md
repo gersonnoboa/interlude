@@ -1,10 +1,13 @@
 #  Interlude
+Attention: Note that the answers for the theory part are inside the app too.
+
 ## To run
 To run the app, open the root project folder and execute:
 
 1. `sudo gem install cocoapods` 
 2. `pod install`
 3. Open `Interlude.xcworkspace`
+4. Go to `Constants.swift` and paste your API token on the `apiToken` constant.
 
 ## Some thoughts
 - I got the requirement to use Gravatar for images, however the API returned a Pipedrive-owned link (apparently you use AWS). So I used that instead. I don't know if that was wrong but the app shows the image regardless.
