@@ -63,9 +63,10 @@ final class PersonListRemote: NSObject, Codable, RemoteObjectProtocol, NSSecureC
     
     convenience init?(coder: NSCoder) {
         let success = coder.decodeBool(forKey: "success")
-        let data = coder.decodeObject(forKey: "data") as! Data
+        let decodedData = coder.decodeObject(forKey: "data") as? Data
         
-        guard let arrayData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [PersonRemote] else {
+        guard let data = decodedData,
+            let arrayData = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(data) as? [PersonRemote] else {
             return nil
         }
         
