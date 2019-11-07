@@ -31,7 +31,8 @@ final class PersonListWorker: PersonListWorkerProtocol {
         }
     }
     
-    private func completeOperation(using list: PersonListRemote?, completion: @escaping (PersonList.Response?) -> Void) {
+    private func completeOperation(using list: PersonListRemote?,
+                                   completion: @escaping (PersonList.Response?) -> Void) {
         guard let list = list, list.success else {
             completion(nil)
             return

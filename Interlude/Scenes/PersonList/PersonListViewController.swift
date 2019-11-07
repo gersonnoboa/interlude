@@ -18,6 +18,7 @@ protocol PersonListViewControllerProtocol: class {
 
 class PersonListViewController: UIViewController, PersonListViewControllerProtocol {
     @IBOutlet weak var tableView: UITableView!
+    
     var interactor: PersonListInteractorProtocol?
     var router: PersonListRouterProtocol?
     var viewModel: PersonList.ViewModel?
@@ -114,7 +115,9 @@ class PersonListViewController: UIViewController, PersonListViewControllerProtoc
     }
     
     func showError() {
-        let alert = UIAlertController(title: "Error", message: "There was an error with the request. Please try again later.", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error",
+                                      message: "There was an error with the request. Please try again later.",
+                                      preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okButton)
         
