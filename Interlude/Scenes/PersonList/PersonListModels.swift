@@ -164,16 +164,16 @@ final class PersonRemote: NSObject, Codable, NSSecureCoding {
     
     convenience init?(coder: NSCoder) {
         let id = coder.decodeInteger(forKey: RootCodingKeys.id.stringValue)
-        let firstName = coder.decodeObject(forKey: RootCodingKeys.first_name.stringValue) as! String
-        let lastName = coder.decodeObject(forKey: RootCodingKeys.last_name.stringValue) as! String
-        let orgName = coder.decodeObject(forKey: RootCodingKeys.org_name.stringValue) as! String
+        let firstName = coder.decodeObject(forKey: RootCodingKeys.first_name.stringValue) as? String ?? ""
+        let lastName = coder.decodeObject(forKey: RootCodingKeys.last_name.stringValue) as? String ?? ""
+        let orgName = coder.decodeObject(forKey: RootCodingKeys.org_name.stringValue) as? String ?? ""
         let followersCount = coder.decodeInteger(forKey: RootCodingKeys.followers_count.stringValue)
-        let pictureURL = coder.decodeObject(forKey: RootCodingKeys.picture_id.stringValue) as? String
+        let pictureURL = coder.decodeObject(forKey: RootCodingKeys.picture_id.stringValue) as? String ?? ""
         let openDealsCount = coder.decodeInteger(forKey: RootCodingKeys.open_deals_count.stringValue)
         let closedDealsCount = coder.decodeInteger(forKey: RootCodingKeys.closed_deals_count.stringValue)
         let isActive = coder.decodeBool(forKey: RootCodingKeys.active_flag.stringValue)
-        let lastUpdated = coder.decodeObject(forKey: RootCodingKeys.update_time.stringValue) as! String
-        let email = coder.decodeObject(forKey: RootCodingKeys.cc_email.stringValue) as! String
+        let lastUpdated = coder.decodeObject(forKey: RootCodingKeys.update_time.stringValue) as? String ?? ""
+        let email = coder.decodeObject(forKey: RootCodingKeys.cc_email.stringValue) as? String ?? ""
         
         self.init(id: id,
                   firstName: firstName,
