@@ -107,6 +107,7 @@
 		724941A023733E72005D84AD /* AnswerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerModels.swift; sourceTree = "<group>"; };
 		724941A123733E72005D84AD /* AnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerViewController.swift; sourceTree = "<group>"; };
 		724941A223733E72005D84AD /* AnswerInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerInteractor.swift; sourceTree = "<group>"; };
+		724941A92373DE9F005D84AD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		7271C068236E2390005331AB /* PersonDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsViewController.swift; sourceTree = "<group>"; };
 		7271C06A236E282C005331AB /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		72C80F70236F0F9400CEFB1E /* PersonDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsInteractor.swift; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 		7231299C236DC6D40069CBEA = {
 			isa = PBXGroup;
 			children = (
+				724941A92373DE9F005D84AD /* README.md */,
 				723129A7236DC6D40069CBEA /* Interlude */,
 				723129BE236DC6D50069CBEA /* InterludeTests */,
 				723129A6236DC6D40069CBEA /* Products */,
