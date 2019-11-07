@@ -23,10 +23,8 @@ final class PersonListWorker: PersonListWorkerProtocol {
     
     func fetchPersonList(using request: PersonList.Request, completion: @escaping (PersonList.Response?) -> Void) {
         if let persistanceList = Persistance.tryListLoad(using: userDefaults), !request.isFromPullToRefresh {
-            print("load from persistance")
             completeOperation(using: persistanceList, completion: completion)
         } else {
-            print("load from network")
             network.getJSON(Links.personList) { [weak self] (list: PersonListRemote?) in
                 self?.completeOperation(using: list, completion: completion)
             }
